@@ -166,7 +166,7 @@ const GreenDots1 = ({ numberOfDots = 7 }) => {
       for (let i = 0; i < numberOfDots; i++) {
         newDots.push({
           id: i,
-          top: (isMobile ? 280 : 160) + Math.random() * 14,
+          top: (isMobile ? 280 : 135) + Math.random() * 14,
           right: 46 + Math.random() * 10,
           size: Math.random() * 4 + 4,
           duration: Math.random() * 4 + 4,
@@ -322,14 +322,14 @@ const ViewA = ({ onBack }) => {
           transition={{ duration: 0.7, ease: easeOut, delay: 0.2 }}
           className="flex items-center justify-between w-full sm:px-10 mt-10"
         >
-          <div className="sm:block hidden z-50 rounded-3xl w-[26.5rem] h-[27rem] relative -top-14">
+          <div className="sm:block hidden z-50 rounded-3xl w-[22.5rem] h-[22rem] relative -top-14 left-10">
             <img
               src="/mpl-1.png"
               alt=""
               className="object-contain rounded-3xl"
             />
           </div>
-          <div className="z-50 rounded-3xl mx-auto w-[15rem] sm:w-[30rem] h-[16rem] sm:h-[27rem] backdrop-blur-xl p-5 bg-[#001b0c9a] flex items-center justify-center relative top-6 sm:-top-14">
+          <div className="z-50 rounded-3xl mx-auto w-[15rem] sm:w-[25rem] h-[16rem] sm:h-[22rem] backdrop-blur-xl p-5 bg-[#001b0c9a] flex items-center justify-center relative top-0 sm:-top-14">
             <img
               src={isMobile ? "/vector38.svg" : "/vector19.svg"}
               alt=""
@@ -337,19 +337,15 @@ const ViewA = ({ onBack }) => {
             />
 
             <div className="text-white z-50 flex items-center justify-start flex-col gap-1">
-              <span className="text-white audiowide uppercase text-sm sm:text-3xl text-center">
+              <span className="text-white audiowide uppercase text-sm sm:text-xl text-center">
                 Math Premier League
               </span>
-              <span className="text-white poppins uppercase sm:text-xl text-[0.65rem] leading-tight text-center tracking-wide sm:tracking-[0.2rem] sm:mt-2">
+              <span className="text-white poppins uppercase sm:text-base text-[0.65rem] leading-tight text-center tracking-wide sm:tracking-[0.2rem] sm:mt-2">
                 Three rounds. one champion. <br />
                 infinite excitement.
               </span>
-              <img
-                src="/vector20.svg"
-                alt=""
-                className="size-[70%] sm:mb-3 my-1 sm:mt-2"
-              />
-              <p className="manrope leading-normal sm:leading-[2.5rem] text-center text-white sm:px-6 text-xs sm:text-base">
+              <img src="/vector20.svg" alt="" className="size-[70%] my-1" />
+              <p className="manrope leading-normal sm:leading-[2rem] text-center text-white sm:px-6 text-xs sm:text-sm">
                 Math Premier League is a fun, team-based event blending math and
                 interactive challenges. It features a Coding Relay, a clue-based
                 Treasure Hunt, and a Jeopardy-style quiz spanning diverse
@@ -358,7 +354,7 @@ const ViewA = ({ onBack }) => {
               </p>
             </div>
           </div>
-          <div className="sm:block hidden z-50 rounded-3xl w-[26.5rem] h-[27rem] relative -top-14">
+          <div className="sm:block hidden z-50 rounded-3xl w-[22.5rem] h-[22rem] relative -top-14 right-10">
             <img
               src="/mpl-2.png"
               alt=""
@@ -371,7 +367,7 @@ const ViewA = ({ onBack }) => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: easeOut, delay: 0.6 }}
           onClick={onBack}
-          className="sm:top-0 top-20 sm:left-0 right-28 relative audiowide mt-3 px-6 sm:px-12 py-2 bg-gradient-to-r from-[#2b684e] to-[#001b0c] text-white rounded-2xl z-50 text-xl sm:text-3xl"
+          className="sm:-top-14 top-16 sm:left-0 right-28 relative audiowide mt-3 px-6 sm:px-8 py-2 bg-gradient-to-r from-[#2b684e] to-[#001b0c] text-white rounded-2xl z-50 text-xl"
         >
           Back
         </motion.button>
@@ -380,7 +376,7 @@ const ViewA = ({ onBack }) => {
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, ease: easeOut, delay: 1 }}
-        className="text-[4.5rem] sm:text-[20rem] italic bg-gradient-to-b from-[#4a4a4a] via-[#4a4a4a6d] to-transparent text-transparent bg-clip-text fixed -bottom-2 sm:-bottom-24 cursor-default"
+        className="text-[4.5rem] sm:text-[18rem] italic bg-gradient-to-b from-[#4a4a4a] via-[#4a4a4a6d] to-transparent text-transparent bg-clip-text fixed -bottom-2 sm:-bottom-24 cursor-default"
       >
         GRAVITAS
       </motion.span>
@@ -528,37 +524,33 @@ const ViewB = ({ onBack, onNext }) => {
             transition={{ duration: 0.5, ease: easeOut }}
             className="flex items-center justify-between w-full sm:px-10 mt-10"
           >
-            <div className="sm:block hidden z-50 rounded-3xl w-[26.5rem] h-[27rem] relative -top-14">
+            <div className="sm:block hidden z-50 rounded-3xl w-[22.5rem] h-[22rem] relative -top-14 left-10">
               <img
                 src={currentContent.img1}
                 alt=""
                 className="object-contain rounded-3xl"
               />
             </div>
-            <div className="z-50 rounded-3xl mx-auto w-[15rem] sm:w-[30rem] h-[17rem] sm:h-[27rem] backdrop-blur-xl p-5 bg-[#001b0c9a] flex items-center justify-center relative top-6 sm:-top-14">
+            <div className="z-50 rounded-3xl mx-auto w-[15rem] sm:w-[25rem] h-[16rem] sm:h-[22rem] backdrop-blur-xl p-5 bg-[#001b0c9a] flex items-center justify-center relative top-0 sm:-top-14">
               <img
                 src={isMobile ? "/vector38.svg" : "/vector19.svg"}
                 alt=""
                 className="absolute size-[100%]"
               />
               <div className="text-white z-50 flex items-center justify-start flex-col gap-1">
-                <span className="text-white audiowide uppercase text-sm sm:text-3xl text-center">
+                <span className="text-white audiowide uppercase text-sm sm:text-xl text-center">
                   {currentContent.title}
                 </span>
-                <span className="text-white poppins uppercase sm:text-xl text-[0.65rem] leading-tight text-center tracking-wide sm:tracking-[0.2rem] sm:mt-2 whitespace-pre-line">
+                <span className="text-white poppins uppercase sm:text-base text-[0.65rem] leading-tight text-center tracking-wide sm:tracking-[0.2rem] sm:mt-2">
                   {currentContent.subTitle}
                 </span>
-                <img
-                  src="/vector20.svg"
-                  alt=""
-                  className="size-[70%] sm:mb-3 my-1 sm:mt-2"
-                />
-                <p className="manrope leading-normal sm:leading-[2.5rem] text-center text-white sm:px-6 text-xs sm:text-base">
+                <img src="/vector20.svg" alt="" className="size-[70%] my-1" />
+                <p className="manrope leading-normal sm:leading-[2rem] text-center text-white sm:px-6 text-xs sm:text-sm">
                   {currentContent.description}
                 </p>
               </div>
             </div>
-            <div className="sm:block hidden z-50 rounded-3xl w-[26.5rem] h-[27rem] relative -top-14">
+            <div className="sm:block hidden z-50 rounded-3xl w-[22.5rem] h-[22rem] relative -top-14 right-10">
               <img
                 src={currentContent.img2}
                 alt=""
@@ -573,7 +565,7 @@ const ViewB = ({ onBack, onNext }) => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: easeOut, delay: 0.6 }}
           onClick={onBack}
-          className="sm:top-0 top-20 sm:left-0 right-28 relative audiowide mt-3 px-6 sm:px-12 py-2 bg-gradient-to-r from-[#2b684e] to-[#001b0c] text-white rounded-2xl z-50 text-xl sm:text-3xl bg-[length:200%_auto] hover:bg-right transition-all duration-500"
+          className="sm:-top-14 top-16 sm:left-0 right-28 relative audiowide mt-3 px-6 sm:px-8 py-2 bg-gradient-to-r from-[#2b684e] to-[#001b0c] text-white rounded-2xl z-50 text-xl bg-[length:200%_auto] hover:bg-right transition-all duration-500"
         >
           Back
         </motion.button>
@@ -585,7 +577,7 @@ const ViewB = ({ onBack, onNext }) => {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -50 }}
           transition={{ duration: 0.7, ease: easeOut, delay: 0.2 }}
-          className="text-[4.5rem] sm:text-[20rem] italic bg-gradient-to-b from-[#4a4a4a] via-[#4a4a4a6d] to-transparent text-transparent bg-clip-text fixed -bottom-2 sm:-bottom-24 cursor-default"
+          className="text-[4.5rem] sm:text-[18rem] italic bg-gradient-to-b from-[#4a4a4a] via-[#4a4a4a6d] to-transparent text-transparent bg-clip-text fixed -bottom-2 sm:-bottom-24 cursor-default"
         >
           {currentContent.bgText}
         </motion.span>
@@ -745,37 +737,33 @@ const ViewC = ({ onBack }) => {
             transition={{ duration: 0.5, ease: easeOut }}
             className="flex items-center justify-between w-full sm:px-10 mt-10"
           >
-            <div className="sm:block hidden z-50 rounded-3xl w-[26.5rem] h-[27rem] relative -top-14">
+            <div className="sm:block hidden z-50 rounded-3xl w-[22.5rem] h-[22rem] relative -top-14 left-10">
               <img
                 src={currentContent.img1}
                 alt=""
                 className="object-contain rounded-3xl"
               />
             </div>
-            <div className="z-50 rounded-3xl mx-auto w-[15rem] sm:w-[30rem] h-[16rem] sm:h-[27rem] backdrop-blur-xl p-5 bg-[#001b0c9a] flex items-center justify-center relative top-6 sm:-top-14">
+            <div className="z-50 rounded-3xl mx-auto w-[15rem] sm:w-[25rem] h-[16rem] sm:h-[22rem] backdrop-blur-xl p-5 bg-[#001b0c9a] flex items-center justify-center relative top-0 sm:-top-14">
               <img
                 src={isMobile ? "/vector38.svg" : "/vector19.svg"}
                 alt=""
                 className="absolute size-[95%]"
               />
               <div className="text-white z-50 flex items-center justify-start flex-col gap-1">
-                <span className="text-white audiowide uppercase text-sm sm:text-3xl text-center">
+                <span className="text-white audiowide uppercase text-sm sm:text-xl text-center">
                   {currentContent.title}
                 </span>
-                <span className="text-white poppins uppercase sm:text-xl text-[0.65rem] leading-tight text-center tracking-wide sm:tracking-[0.2rem] sm:mt-2 whitespace-pre-line">
+                <span className="text-white poppins uppercase sm:text-base text-[0.65rem] leading-tight text-center tracking-wide sm:tracking-[0.2rem] sm:mt-2">
                   {currentContent.subTitle}
                 </span>
-                <img
-                  src="/vector20.svg"
-                  alt=""
-                  className="size-[70%] sm:mb-3 my-1 sm:mt-2"
-                />
-                <p className="manrope leading-normal sm:leading-[2.5rem] text-center text-white sm:px-6 text-xs sm:text-base">
+                <img src="/vector20.svg" alt="" className="size-[70%] my-1" />
+                <p className="manrope leading-normal sm:leading-[2rem] text-center text-white sm:px-6 text-xs sm:text-sm">
                   {currentContent.description}
                 </p>
               </div>
             </div>
-            <div className="sm:block hidden z-50 rounded-3xl w-[26.5rem] h-[27rem] relative -top-14">
+            <div className="sm:block hidden z-50 rounded-3xl w-[22.5rem] h-[22rem] relative -top-14 right-10">
               <img
                 src={currentContent.img2}
                 alt=""
@@ -790,7 +778,7 @@ const ViewC = ({ onBack }) => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: easeOut, delay: 0.6 }}
           onClick={onBack}
-          className="sm:top-0 top-20 sm:left-0 right-28 relative audiowide mt-3 px-6 sm:px-12 py-2 bg-gradient-to-r from-[#2b684e] to-[#001b0c] text-white rounded-2xl z-50 text-xl sm:text-3xl bg-[length:200%_auto] hover:bg-right transition-all duration-500"
+          className="sm:-top-14 top-16 sm:left-0 right-28 relative audiowide mt-3 px-6 sm:px-8 py-2 bg-gradient-to-r from-[#2b684e] to-[#001b0c] text-white rounded-2xl z-50 text-xl bg-[length:200%_auto] hover:bg-right transition-all duration-500"
         >
           Back
         </motion.button>
@@ -803,7 +791,7 @@ const ViewC = ({ onBack }) => {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -50 }}
           transition={{ duration: 0.7, ease: easeOut, delay: 0.2 }}
-          className="text-[4.5rem] sm:text-[20rem] italic bg-gradient-to-b from-[#4a4a4a] via-[#4a4a4a6d] to-transparent text-transparent bg-clip-text fixed -bottom-2 sm:-bottom-24 cursor-default"
+          className="text-[4.5rem] sm:text-[18rem] italic bg-gradient-to-b from-[#4a4a4a] via-[#4a4a4a6d] to-transparent text-transparent bg-clip-text fixed -bottom-2 sm:-bottom-24 cursor-default"
         >
           {currentContent.bgText}
         </motion.span>
@@ -834,7 +822,7 @@ const ViewD = ({ onBack, onNext }) => {
       exit={{ opacity: 0 }}
       className="w-full h-screen flex flex-col justify-center items-center absolute z-50"
     >
-      <div className="absolute bottom-20 sm:bottom-56 left-6 sm:left-[8.5rem] rounded-3xl w-[8rem] sm:w-[25rem] h-[27rem] sm:backdrop-blur-xl p-5 bg-transparent sm:bg-[#00000040] flex items-center justify-center">
+      <div className="absolute bottom-44 sm:bottom-72 left-6 sm:left-[10rem] rounded-3xl w-[8rem] sm:w-[20rem] h-[22rem] sm:backdrop-blur-xl p-5 bg-transparent sm:bg-[#00000040] flex items-center justify-center">
         <img src="/vector29.svg" alt="" className="absolute size-[97%]" />
         <div className="bg-transparent sm:w-[95%] sm:h-[95%]">
           <img
@@ -851,7 +839,7 @@ const ViewD = ({ onBack, onNext }) => {
         alt=""
         className={`${
           isMobile ? "size-14" : ""
-        } absolute right-[3.65rem] bottom-40 sm:right-[18.5rem] sm:top-[39rem]`}
+        } absolute right-[3.65rem] bottom-40 sm:right-[18.5rem] sm:top-[35rem]`}
         animate={{
           y: [0, -15, 0],
         }}
@@ -868,9 +856,9 @@ const ViewD = ({ onBack, onNext }) => {
         alt=""
         className={`${
           isMobile ? "size-20" : ""
-        } absolute right-12 bottom-32 sm:right-52 sm:top-[38rem]`}
+        } absolute right-12 bottom-32 sm:right-52 sm:top-[33rem]`}
       />
-      <div className="absolute bottom-20 sm:bottom-56 right-6 sm:right-[8.5rem] rounded-3xl w-[8rem] sm:w-[25rem] h-[27rem] sm:backdrop-blur-xl p-5 bg-transparent sm:bg-[#00000040] flex items-center justify-center">
+      <div className="absolute bottom-44 sm:bottom-72 right-6 sm:right-[10rem] rounded-3xl w-[8rem] sm:w-[20rem] h-[22rem] sm:backdrop-blur-xl p-5 bg-transparent sm:bg-[#00000040] flex items-center justify-center">
         <img src="/vector29.svg" alt="" className="absolute size-[97%]" />
         <div className="bg-transparent w-[95%] h-[95%]">
           <img
@@ -887,7 +875,7 @@ const ViewD = ({ onBack, onNext }) => {
         alt=""
         className={`${
           isMobile ? "size-14" : ""
-        } absolute left-[3.65rem] bottom-40 sm:left-[18.5rem] sm:top-[39rem]`}
+        } absolute left-[3.65rem] bottom-40 sm:left-[18.2rem] sm:top-[35rem]`}
         animate={{
           y: [0, -15, 0],
         }}
@@ -904,13 +892,13 @@ const ViewD = ({ onBack, onNext }) => {
         alt=""
         className={`${
           isMobile ? "size-20" : ""
-        } absolute left-12 bottom-32 sm:left-52 sm:top-[38rem]`}
+        } absolute left-12 bottom-32 sm:left-52 sm:top-[33rem]`}
       />
-      <div className="w-full h-fit flex flex-col items-center justify-center gap-y-6 absolute top-32 sm:bottom-20">
+      <div className="w-full h-fit flex flex-col items-center justify-center gap-y-6 absolute top-32 sm:top-48">
         <h1 className="text-center text-3xl sm:text-6xl mx-auto text-white audiowide uppercase">
           Bug Hunt
         </h1>
-        <p className="leading-normal sm:leading-[2.5rem] text-white text-center manrope mx-3 sm:w-96 text-sm sm:text-xl">
+        <p className="leading-normal sm:leading-[2.5rem] text-white text-center manrope mx-3 sm:w-96 text-sm sm:text-lg">
           Bug Hunt is an intense debugging competition that tests participants'
           skills in Java, C++, and Python. Under time pressure, competitors have
           to spot and fix bugs, showcasing their logic, precision, and
@@ -922,7 +910,7 @@ const ViewD = ({ onBack, onNext }) => {
         onClick={onBack}
         src="/vector17.svg"
         alt="Back to Grid"
-        className="absolute bottom-10 size-20 sm:size-32 left-5 cursor-pointer"
+        className="absolute bottom-14 size-20 sm:size-32 left-5 cursor-pointer"
         style={{ rotateY: 180 }}
         whileHover={{ scale: 1.1 }}
       />
@@ -930,7 +918,7 @@ const ViewD = ({ onBack, onNext }) => {
         onClick={onNext}
         src="/vector17.svg"
         alt="Next View"
-        className="absolute bottom-10 size-20 sm:size-32 right-5 cursor-pointer"
+        className="absolute bottom-14 size-20 sm:size-32 right-5 cursor-pointer"
         whileHover={{ scale: 1.1 }}
       />
     </motion.div>
@@ -947,7 +935,7 @@ const ViewE = ({ onBack, onNext }) => {
       exit={{ opacity: 0 }}
       className="w-full h-screen flex flex-col justify-center items-center absolute z-50"
     >
-      <div className="absolute bottom-20 sm:bottom-56 left-6 sm:left-[8.5rem] rounded-3xl w-[8rem] sm:w-[25rem] h-[27rem] sm:backdrop-blur-xl p-5 bg-transparent sm:bg-[#00000040] flex items-center justify-center">
+      <div className="absolute bottom-44 sm:bottom-72 left-6 sm:left-[10rem] rounded-3xl w-[8rem] sm:w-[20rem] h-[22rem] sm:backdrop-blur-xl p-5 bg-transparent sm:bg-[#00000040] flex items-center justify-center">
         <img src="/vector29.svg" alt="" className="absolute size-[97%]" />
         <div className="bg-transparent sm:w-[95%] sm:h-[95%]">
           <img
@@ -964,7 +952,7 @@ const ViewE = ({ onBack, onNext }) => {
         alt=""
         className={`${
           isMobile ? "size-14" : ""
-        } absolute right-[3.65rem] bottom-40 sm:right-[18.5rem] sm:top-[39rem]`}
+        } absolute right-[3.65rem] bottom-40 sm:right-[18.5rem] sm:top-[35rem]`}
         animate={{ y: [0, -15, 0] }}
         transition={{ y: { duration: 3, repeat: Infinity, ease: "easeInOut" } }}
       />
@@ -973,9 +961,9 @@ const ViewE = ({ onBack, onNext }) => {
         alt=""
         className={`${
           isMobile ? "size-20" : ""
-        } absolute right-12 bottom-32 sm:right-52 sm:top-[38rem]`}
+        } absolute right-12 bottom-32 sm:right-52 sm:top-[33rem]`}
       />
-      <div className="absolute bottom-20 sm:bottom-56 right-6 sm:right-[8.5rem] rounded-3xl w-[8rem] sm:w-[25rem] h-[27rem] sm:backdrop-blur-xl p-5 bg-transparent sm:bg-[#00000040] flex items-center justify-center">
+      <div className="absolute bottom-44 sm:bottom-72 right-6 sm:right-[10rem] rounded-3xl w-[8rem] sm:w-[20rem] h-[22rem] sm:backdrop-blur-xl p-5 bg-transparent sm:bg-[#00000040] flex items-center justify-center">
         <img src="/vector29.svg" alt="" className="absolute size-[97%]" />
         <div className="bg-transparent w-[95%] h-[95%]">
           <img
@@ -992,7 +980,7 @@ const ViewE = ({ onBack, onNext }) => {
         alt=""
         className={`${
           isMobile ? "size-14" : ""
-        } absolute left-[3.65rem] bottom-40 sm:left-[18.5rem] sm:top-[39rem]`}
+        } absolute left-[3.65rem] bottom-40 sm:left-[18.2rem] sm:top-[35rem]`}
         animate={{ y: [0, -15, 0] }}
         transition={{ y: { duration: 3, repeat: Infinity, ease: "easeInOut" } }}
       />
@@ -1001,13 +989,13 @@ const ViewE = ({ onBack, onNext }) => {
         alt=""
         className={`${
           isMobile ? "size-20" : ""
-        } absolute left-12 bottom-32 sm:left-52 sm:top-[38rem]`}
+        } absolute left-12 bottom-32 sm:left-52 sm:top-[33rem]`}
       />
-      <div className="w-full h-fit flex flex-col items-center justify-center gap-y-6 absolute top-32 sm:bottom-20">
+      <div className="w-full h-fit flex flex-col items-center justify-center gap-y-6 absolute top-32 sm:top-48">
         <h1 className="sm:mt-0 -mt-8 text-center text-3xl sm:text-6xl mx-auto text-white audiowide uppercase">
           Sudoku <br /> Sprint
         </h1>
-        <p className="sm:mt-0 -mt-4 leading-normal sm:leading-[2.5rem] text-white text-center manrope mx-3 sm:w-96 text-sm sm:text-xl">
+        <p className="sm:mt-0 -mt-4 leading-normal sm:leading-[2.5rem] text-white text-center manrope mx-3 sm:w-96 text-sm sm:text-lg">
           Sudoku Sprint is a fast-paced, math-based event that challenges
           participants’ logic, pattern recognition, and numerical reasoning.
           Contestants race against time to solve increasingly complex 9x9 Sudoku
@@ -1020,7 +1008,7 @@ const ViewE = ({ onBack, onNext }) => {
         onClick={onBack}
         src="/vector17.svg"
         alt="Previous View"
-        className="absolute bottom-10 size-20 sm:size-32 left-5 cursor-pointer"
+        className="absolute bottom-14 size-20 sm:size-32 left-5 cursor-pointer"
         style={{ rotateY: 180 }}
         whileHover={{ scale: 1.1 }}
       />
@@ -1028,7 +1016,7 @@ const ViewE = ({ onBack, onNext }) => {
         onClick={onNext}
         src="/vector17.svg"
         alt="Next View"
-        className="absolute bottom-10 size-20 sm:size-32 right-5 cursor-pointer"
+        className="absolute bottom-14 size-20 sm:size-32 right-5 cursor-pointer"
         whileHover={{ scale: 1.1 }}
       />
     </motion.div>
@@ -1045,7 +1033,7 @@ const ViewF = ({ onBack }) => {
       exit={{ opacity: 0 }}
       className="w-full h-screen flex flex-col justify-center items-center absolute z-50"
     >
-      <div className="absolute bottom-20 sm:bottom-56 left-6 sm:left-[8.5rem] rounded-3xl w-[8rem] sm:w-[25rem] h-[27rem] sm:backdrop-blur-xl p-5 bg-transparent sm:bg-[#00000040] flex items-center justify-center">
+      <div className="absolute bottom-44 sm:bottom-72 left-6 sm:left-[10rem] rounded-3xl w-[8rem] sm:w-[20rem] h-[22rem] sm:backdrop-blur-xl p-5 bg-transparent sm:bg-[#00000040] flex items-center justify-center">
         <img src="/vector29.svg" alt="" className="absolute size-[97%]" />
         <div className="bg-transparent sm:w-[95%] sm:h-[95%]">
           <img
@@ -1062,7 +1050,7 @@ const ViewF = ({ onBack }) => {
         alt=""
         className={`${
           isMobile ? "size-14" : ""
-        } absolute right-[3.65rem] bottom-40 sm:right-[18.5rem] sm:top-[39rem]`}
+        } absolute right-[3.65rem] bottom-40 sm:right-[18.5rem] sm:top-[35rem]`}
         animate={{ y: [0, -15, 0] }}
         transition={{ y: { duration: 3, repeat: Infinity, ease: "easeInOut" } }}
       />
@@ -1071,9 +1059,9 @@ const ViewF = ({ onBack }) => {
         alt=""
         className={`${
           isMobile ? "size-20" : ""
-        } absolute right-12 bottom-32 sm:right-52 sm:top-[38rem]`}
+        } absolute right-12 bottom-32 sm:right-52 sm:top-[33rem]`}
       />
-      <div className="absolute bottom-20 sm:bottom-56 right-6 sm:right-[8.5rem] rounded-3xl w-[8rem] sm:w-[25rem] h-[27rem] sm:backdrop-blur-xl p-5 bg-transparent sm:bg-[#00000040] flex items-center justify-center">
+      <div className="absolute bottom-44 sm:bottom-72 right-6 sm:right-[10rem] rounded-3xl w-[8rem] sm:w-[20rem] h-[22rem] sm:backdrop-blur-xl p-5 bg-transparent sm:bg-[#00000040] flex items-center justify-center">
         <img src="/vector29.svg" alt="" className="absolute size-[97%]" />
         <div className="bg-transparent w-[95%] h-[95%]">
           <img
@@ -1090,7 +1078,7 @@ const ViewF = ({ onBack }) => {
         alt=""
         className={`${
           isMobile ? "size-14" : ""
-        } absolute left-[3.65rem] bottom-40 sm:left-[18.5rem] sm:top-[39rem]`}
+        } absolute left-[3.65rem] bottom-40 sm:left-[18.2rem] sm:top-[35rem]`}
         animate={{ y: [0, -15, 0] }}
         transition={{ y: { duration: 3, repeat: Infinity, ease: "easeInOut" } }}
       />
@@ -1099,13 +1087,13 @@ const ViewF = ({ onBack }) => {
         alt=""
         className={`${
           isMobile ? "size-20" : ""
-        } absolute left-12 bottom-32 sm:left-52 sm:top-[38rem]`}
+        } absolute left-12 bottom-32 sm:left-52 sm:top-[33rem]`}
       />
-      <div className="w-full h-fit flex flex-col items-center justify-center gap-y-6 absolute top-32 sm:bottom-20">
+      <div className="w-full h-fit flex flex-col items-center justify-center gap-y-6 absolute top-32 sm:top-48">
         <h1 className="text-center text-3xl sm:text-6xl mx-auto text-white audiowide uppercase">
           Road to ML
         </h1>
-        <p className="leading-normal sm:leading-[2.5rem] text-white text-center manrope mx-3 sm:w-96 text-sm sm:text-xl">
+        <p className="leading-normal sm:leading-[2.5rem] text-white text-center manrope mx-3 sm:w-96 text-sm sm:text-lg">
           Road To Machine Learning explores the impact of data pre-processing on
           AI/ML performance. Through case studies, it highlights how clean,
           unbiased data leads to more accurate and fair models, offering key
@@ -1117,7 +1105,7 @@ const ViewF = ({ onBack }) => {
         onClick={onBack}
         src="/vector17.svg"
         alt="Previous View"
-        className="absolute bottom-10 size-20 sm:size-32 left-5 cursor-pointer"
+        className="absolute bottom-14 size-20 sm:size-32 left-5 cursor-pointer"
         style={{ rotateY: 180 }}
         whileHover={{ scale: 1.1 }}
       />
@@ -1295,7 +1283,7 @@ const EventsPageContent = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 3.5, ease: easeOut, delay: 0.2 }}
-              className="absolute size-[11rem] sm:size-[26rem] z-50 right-[2%] sm:left-[20%] rounded-full"
+              className="absolute size-[9.5rem] sm:size-[26rem] z-50 right-[2%] sm:left-[20%] rounded-full"
               style={{
                 boxShadow: "0 0 500px 40px rgba(255, 255, 255, 0.3)",
               }}
@@ -1312,7 +1300,7 @@ const EventsPageContent = () => {
                 initial={{ y: 30, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.5, ease: easeOut, delay: 0.2 }}
-                className="relative -top-24 sm:-top-10 ml-8 sm:ml-12 uppercase text-[20px] sm:text-[34px] audiowide text-[#9CEBDB]"
+                className="relative -top-24 sm:-top-10 ml-8 sm:ml-12 uppercase text-[20px] sm:text-[24px] audiowide text-[#9CEBDB]"
               >
                 The pulse of
               </motion.h1>
@@ -1320,21 +1308,21 @@ const EventsPageContent = () => {
                 initial={{ y: 30, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.5, ease: easeOut, delay: 0.5 }}
-                className="relative -top-24 sm:-top-10 ml-8 audiowide sm:ml-12 z-20 text-white sm:text-[58px] text-[24px] uppercase"
+                className="relative -top-24 sm:-top-10 ml-8 audiowide sm:ml-12 z-20 text-white sm:text-[48px] text-[24px] uppercase"
               >
                 What's happening <br />
                 at SIAM
                 <img
                   src="/vector11.svg"
                   alt=""
-                  className="absolute top-[2rem] sm:top-[4.5rem] -left-12 sm:-left-20 -z-10 size-[65%]"
+                  className="absolute top-[2rem] sm:top-[4rem] -left-12 sm:-left-28 -z-10 sm:size-[65%] size-[65%]"
                 />
               </motion.h1>
               <motion.h2
                 initial={{ y: 30, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.5, ease: easeOut, delay: 0.7 }}
-                className="z-50 leading-none afacad relative sm:top-0 -top-20 text-center text-white sm:text-[32px] text-[20px]"
+                className="z-50 sm:right-24 right-0 leading-none afacad relative sm:top-0 -top-20 text-center text-white sm:text-[28px] text-[18px]"
               >
                 Quizzes | Guest Talks | Hackathons | More...
               </motion.h2>
@@ -1350,7 +1338,7 @@ const EventsPageContent = () => {
                 initial={{ y: 30, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.5, ease: easeOut, delay: 1.1 }}
-                className="relative right-[46rem] sm:right-[42rem] -top-12 sm:top-[4.5rem] w-[1800px] h-[220px] flex items-center justify-center"
+                className="relative right-[46rem] sm:right-[47rem] -top-12 sm:top-[4.5rem] w-[1800px] h-[220px] flex items-center justify-center"
               >
                 <div
                   className="bg-[#28649721] z-0 flex flex-col items-center justify-center rounded-3xl backdrop-blur-xl w-[20rem] h-[7rem] sm:w-[58rem] sm:h-[18.5rem]"
@@ -1364,13 +1352,13 @@ const EventsPageContent = () => {
                   <img
                     src="/vector13.svg"
                     alt=""
-                    className="size-[75%] sm:size-[40%] relative -bottom-52 sm:bottom-0 -right-36 sm:-right-[27rem]"
+                    className="size-[75%] sm:size-[40%] relative -bottom-48 sm:bottom-0 -right-36 sm:-right-[27rem]"
                   />
                   <img
                     src="/vector14.svg"
                     alt="Show Events"
                     onClick={handleShowGrid}
-                    className="absolute size-[20%] sm:size-[10%] top-[19rem] sm:top-[17.15rem] -right-[1.6rem] z-50 cursor-pointer hover:scale-110 transition-transform duration-300"
+                    className="absolute size-[20%] sm:size-[10%] top-[18rem] sm:top-[17.15rem] -right-[1.6rem] z-50 cursor-pointer hover:scale-110 transition-transform duration-300"
                   />
                   <span className="leading-normal sm:leading-relaxed afacad text-sm sm:text-[2.7rem] text-white !italic absolute right-32 sm:top-10 sm:right-20 text-left">
                     Because every great idea <br />
@@ -1383,7 +1371,7 @@ const EventsPageContent = () => {
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.5, ease: easeOut, delay: 1.4 }}
-                className="text-white text-md manrope ml-8 sm:ml-10 -bottom-36 absolute"
+                className="text-white text-md manrope ml-8 sm:ml-10 -bottom-28 absolute"
               >
                 Ready for more? Hit the arrow{" "}
                 <br className="sm:hidden visible" />
@@ -1404,7 +1392,7 @@ const EventsPageContent = () => {
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, ease: easeOut, delay: 0.2 }}
-              className="manrope -mt-14 sm:mt-8 z-20 text-center text-white sm:text-[66px] text-[32px] mx-3 sm:mx-32"
+              className="manrope -mt-14 sm:-mt-5 z-20 text-center text-white sm:text-[66px] text-[32px] mx-3 sm:mx-32"
             >
               What We Do?
             </motion.h1>

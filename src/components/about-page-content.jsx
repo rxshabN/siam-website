@@ -290,7 +290,7 @@ const AboutPageContent = () => {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: easeOut, delay: 0.2 }}
-          className="mt-2 z-20 text-center text-white text-[24px] mx-10 uppercase sm:hidden block"
+          className="mt-2 z-20 text-center text-white text-[18px] mx-10 uppercase sm:hidden block"
         >
           About us
         </motion.h1>
@@ -307,7 +307,7 @@ const AboutPageContent = () => {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: easeOut, delay: 0.8 }}
-          className="z-50 leading-[1.7rem] sm:leading-none afacad relative text-center text-white sm:text-[26px] text-[18px] mx-4 sm:mx-96 mt-2 sm:mt-16"
+          className="z-50 leading-[1.7rem] sm:leading-none afacad relative text-center text-white sm:text-[26px] text-[15px] mx-4 sm:mx-96 mt-2 sm:mt-16"
         >
           SIAM is a globally recognized organization dedicated to bridging the
           gap between mathematics and technology. Headquartered in Philadelphia,

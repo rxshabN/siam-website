@@ -293,7 +293,7 @@ const DomainDetailPopup = ({ domain, onClose, height }) => {
       </button>
       <div className="flex sm:flex-row flex-col items-center justify-center h-full w-full p-5">
         <div className="sm:w-1/3 h-1/2 sm:block flex items-center justify-center relative">
-          <div className="absolute -top-16 left-[4.25rem] sm:left-[10.5rem] rounded-3xl w-[10rem] h-[10rem] sm:w-[20rem] sm:h-[22rem] backdrop-blur-xl p-5 bg-[#00000040] flex items-center justify-center">
+          <div className="absolute sm:-top-32 -top-16 left-[4.25rem] sm:left-[10.5rem] rounded-3xl w-[10rem] h-[10rem] sm:w-[20rem] sm:h-[22rem] backdrop-blur-xl p-5 bg-[#00000040] flex items-center justify-center">
             <img src="/vector28.svg" alt="" className="absolute size-[95%]" />
             <div className="relative bg-transparent size-[95%]">
               <img
@@ -306,14 +306,14 @@ const DomainDetailPopup = ({ domain, onClose, height }) => {
           <img
             src="/vector27.svg"
             alt=""
-            className="relative size-[80%] sm:size-[90%] -top-2 left-2 sm:left-28 sm:top-52"
+            className="relative size-[80%] sm:size-[90%] -top-2 left-0 sm:left-28 sm:top-44"
           />
         </div>
         <div className="sm:w-2/3 h-1/2 flex flex-col items-center justify-start text-center text-white -mt-36 sm:-mt-32">
           <h1 className="text-3xl sm:text-6xl manrope uppercase font-extrabold mb-2 sm:mb-10">
             About {domain.title}
           </h1>
-          <p className="text-base sm:text-2xl afacad sm:leading-[3.5rem] sm:px-32">
+          <p className="-mt-2 text-base sm:text-2xl afacad sm:leading-[3rem] sm:px-32 px-7">
             {domain.description}
           </p>
         </div>
@@ -365,7 +365,7 @@ const DomainsPageContent = ({ activeDomain, setActiveDomain }) => {
     <>
       <div className="overflow-hidden relative z-10 min-h-screen min-w-screen bg-black poppins flex flex-col justify-center items-center">
         <img
-          src="/grid.png"
+          src={isMobile1 ? "/grid-mobile.png" : "/grid.png"}
           alt=""
           className="w-full max-h-screen overflow-hidden absolute"
         />
@@ -409,27 +409,36 @@ const DomainsPageContent = ({ activeDomain, setActiveDomain }) => {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.3, ease: easeOut }}
         >
-          <h1 className="audiowide uppercase z-20 text-center sm:text-left text-white sm:text-[40px] text-[20px]">
-            Welcome to the SIAM Skill galaxy
-          </h1>
+          <motion.h1
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: easeOut, delay: 0.2 }}
+            className="audiowide uppercase z-20 text-center sm:text-left text-white sm:text-[40px] text-[20px]"
+          >
+            Welcome to the SIAM Skill <br className="sm:block hidden" />
+            galaxy
+          </motion.h1>
           {/* 1. Outer div for the gradient border */}
-          <div
-            className="z-50 rounded-3xl w-[20rem] h-[5rem] sm:w-[23rem] sm:h-[17rem] p-[3px] bg-[#c7e1db0b] relative top-[23rem] right-[0.8rem] sm:top-14 sm:left-14"
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: easeOut, delay: 0.5 }}
+            className="z-50 rounded-3xl w-[16rem] h-[4rem] sm:w-[23rem] sm:h-[17rem] p-[3px] bg-[#c7e1db0b] relative top-[24rem] left-[1.3rem] sm:top-8 sm:left-14"
             style={{
               boxShadow: "0 0 10px 2px rgba(0, 27, 12, 0.15)",
             }}
           >
             {/* 2. Inner div for the content background */}
             <div className="w-full h-full bg-gradient-to-r from-[#005f213f] to-[#009c3967] backdrop-blur-2xl rounded-[22px] flex items-center justify-center">
-              <span className="text-white braah-one text-base sm:text-3xl text-center leading-relaxed">
+              <span className="text-white braah-one text-sm sm:text-3xl text-center leading-relaxed">
                 Curious about our domains? <br /> Tap an icon to dive in!
               </span>
             </div>
-          </div>
+          </motion.div>
           <motion.img
             src={isMobile1 ? "/vector33.svg" : "/orb.svg"}
             alt=""
-            className="z-30 absolute top-[32.5rem] left-[11.5rem] sm:left-60 sm:top-[28rem]"
+            className="z-30 absolute top-[32.5rem] left-[11rem] sm:left-[15.2rem] sm:top-[28rem]"
             animate={{
               y: isMobile ? [0, -5, 0] : [0, -15, 0],
             }}
@@ -444,11 +453,11 @@ const DomainsPageContent = ({ activeDomain, setActiveDomain }) => {
           <img
             src={isMobile1 ? "/vector34.svg" : "/base.svg"}
             alt=""
-            className="absolute top-[32.5rem] left-40 sm:left-40 sm:top-[28rem]"
+            className="absolute top-[32.5rem] left-[9.475rem] sm:left-40 sm:top-[28rem]"
           />
         </motion.div>
         <div className="w-full h-full relative z-50">
-          <div className="absolute -top-40 size-[19rem] left-[10vw] right-auto sm:size-[36rem] sm:-top-60 sm:right-20 sm:left-auto flex items-center justify-center">
+          <div className="absolute -top-40 size-[19rem] left-[10vw] right-auto sm:size-[36rem] sm:-top-60 sm:right-32 sm:left-auto flex items-center justify-center">
             <img
               src="/vector24.svg"
               alt="Track"
@@ -460,7 +469,7 @@ const DomainsPageContent = ({ activeDomain, setActiveDomain }) => {
                 alt="Sun"
                 className="w-full h-full relative left-10 -top-2 sm:left-16 sm:-top-6"
               />
-              <span className="relative right-20 sm:right-[9.7rem] sm:-top-4 z-50 audiowide text-white uppercase text-xs sm:text-xl text-center">
+              <span className="relative right-20 sm:right-[9.7rem] sm:-top-2 z-50 audiowide text-white uppercase text-xs sm:text-xl text-center">
                 journey <br />
                 through <br />
                 our siam <br />

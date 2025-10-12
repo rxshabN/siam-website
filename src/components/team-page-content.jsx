@@ -435,7 +435,7 @@ const TeamPageContent = () => {
                         ease: easeOut,
                         delay: 0.2,
                       }}
-                      className="manrope text-[50px] sm:text-[45px] font-normal uppercase mt-36"
+                      className="manrope text-[20px] sm:text-[30px] font-normal uppercase mt-32"
                     >
                       Our team
                     </motion.h1>
@@ -456,9 +456,10 @@ const TeamPageContent = () => {
                         ease: easeOut,
                         delay: 0.5,
                       }}
-                      className="sm:ml-0 ml-2 sm:px-0 px-20 poppins text-[20px] sm:text-[35px] font-light mt-3 sm:mt-10 tracking-[0.4rem]"
+                      className="sm:ml-0 ml-2 sm:px-0 px-20 poppins text-[12px] sm:text-[20px] font-light mt-3 sm:mt-4 tracking-[0.4rem]"
                     >
-                      Together, We Dream. Together, We Deliver.
+                      Together, We Dream. <br className="sm:hidden block" />{" "}
+                      Together, We Deliver.
                     </motion.h2>
                   </div>
                   <div className="relative w-[600px] h-[220px] mt-48 flex items-center justify-center">

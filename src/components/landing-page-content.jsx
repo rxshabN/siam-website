@@ -142,7 +142,7 @@ const LandingPageContent = () => {
   const isMobile = useIsMobile();
 
   return (
-    <div className="braah-one sm:w-full sm:h-full max-w-screen min-h-screen">
+    <div className="braah-one sm:w-full sm:h-full max-w-screen min-h-screen overflow-hidden">
       <Stars />
       <GreenDots />
       <AnimatedLines />
@@ -192,7 +192,7 @@ const LandingPageContent = () => {
               ease: easeOut,
               delay: 0.2,
             }}
-            className="sm:w-[60%] mx-1 mt-10 text-center audiowide uppercase text-white font-bold sm:text-[64px] text-[26px] sm:mx-auto leading-[1.3]"
+            className="sm:w-[60%] mx-1 mt-14 text-center audiowide uppercase text-white font-bold sm:text-[58px] text-[26px] sm:mx-auto leading-[1.3]"
           >
             Society for Industrial & Applied Mathematics
           </motion.h1>
@@ -219,22 +219,6 @@ const LandingPageContent = () => {
             alt=""
             className="absolute left-0 -top-44 sm:block hidden"
           />
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{
-              duration: 0.5,
-              ease: easeOut,
-              delay: 0.9,
-            }}
-            className="mt-8 braah-one text-white sm:text-[20px] text-[16px] sm:leading-10 sm:mx-auto sm:w-3/5 mx-2 text-center mb-10 sm:mb-5"
-          >
-            Applied mathematics, computational and data science are essential to
-            moving society forward and solving many of the world’s most pressing
-            questions and problems. <br /> SIAM plays a central role in bringing
-            mathematical and computational scientists together, providing a
-            platform and community for this important work.
-          </motion.p>
           <Link to="/wrapped">
             <motion.button
               initial={{ opacity: 0, y: 50 }}
@@ -242,14 +226,30 @@ const LandingPageContent = () => {
               transition={{
                 duration: 0.7,
                 ease: easeOut,
-                delay: 1.2,
+                delay: 0.9,
               }}
-              className="z-50 mx-auto poppins flex gap-x-2 items-center justify-center border border-white uppercase rounded-full px-5 sm:px-14 py-2 mb-10 font-light text-white relative"
+              className="z-50 mx-auto poppins flex gap-x-2 items-center justify-center border border-white uppercase rounded-full px-5 sm:px-14 py-2 mb-5 font-light text-white relative"
             >
               <span className="">2024 Highlights</span>
               <img src="mdi_wand.svg" alt="" />
             </motion.button>
           </Link>
+          <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: 0.5,
+              ease: easeOut,
+              delay: 1.2,
+            }}
+            className="mt-8 braah-one text-white sm:text-[20px] text-[16px] sm:leading-10 sm:mx-auto sm:w-3/5 mx-2 text-center mb-10 sm:mb-10"
+          >
+            Applied mathematics, computational and data science are essential to
+            moving society forward and solving many of the world’s most pressing
+            questions and problems. <br /> SIAM plays a central role in bringing
+            mathematical and computational scientists together, providing a
+            platform and community for this important work.
+          </motion.p>
         </div>
       </section>
     </div>
