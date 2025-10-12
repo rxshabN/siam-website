@@ -367,7 +367,7 @@ const ViewA = ({ onBack }) => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: easeOut, delay: 0.6 }}
           onClick={onBack}
-          className="sm:-top-14 top-16 sm:left-0 right-28 relative audiowide mt-3 px-6 sm:px-8 py-2 bg-gradient-to-r from-[#2b684e] to-[#001b0c] text-white rounded-2xl z-50 text-xl"
+          className="sm:-top-14 top-12 sm:left-0 right-28 relative audiowide mt-3 px-6 sm:px-8 py-2 bg-gradient-to-r from-[#2b684e] to-[#001b0c] text-white rounded-2xl z-50 text-xl"
         >
           Back
         </motion.button>
@@ -565,7 +565,7 @@ const ViewB = ({ onBack, onNext }) => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: easeOut, delay: 0.6 }}
           onClick={onBack}
-          className="sm:-top-14 top-16 sm:left-0 right-28 relative audiowide mt-3 px-6 sm:px-8 py-2 bg-gradient-to-r from-[#2b684e] to-[#001b0c] text-white rounded-2xl z-50 text-xl bg-[length:200%_auto] hover:bg-right transition-all duration-500"
+          className="sm:-top-14 top-12 sm:left-0 right-28 relative audiowide mt-3 px-6 sm:px-8 py-2 bg-gradient-to-r from-[#2b684e] to-[#001b0c] text-white rounded-2xl z-50 text-xl bg-[length:200%_auto] hover:bg-right transition-all duration-500"
         >
           Back
         </motion.button>
@@ -778,7 +778,7 @@ const ViewC = ({ onBack }) => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: easeOut, delay: 0.6 }}
           onClick={onBack}
-          className="sm:-top-14 top-16 sm:left-0 right-28 relative audiowide mt-3 px-6 sm:px-8 py-2 bg-gradient-to-r from-[#2b684e] to-[#001b0c] text-white rounded-2xl z-50 text-xl bg-[length:200%_auto] hover:bg-right transition-all duration-500"
+          className="sm:-top-14 top-12 sm:left-0 right-28 relative audiowide mt-3 px-6 sm:px-8 py-2 bg-gradient-to-r from-[#2b684e] to-[#001b0c] text-white rounded-2xl z-50 text-xl bg-[length:200%_auto] hover:bg-right transition-all duration-500"
         >
           Back
         </motion.button>
@@ -1371,7 +1371,7 @@ const EventsPageContent = () => {
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.5, ease: easeOut, delay: 1.4 }}
-                className="text-white text-md manrope ml-8 sm:ml-10 -bottom-28 absolute"
+                className="text-white text-md manrope ml-8 sm:ml-10 sm:-bottom-36 -bottom-28 absolute"
               >
                 Ready for more? Hit the arrow{" "}
                 <br className="sm:hidden visible" />

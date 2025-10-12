@@ -48,90 +48,6 @@ const domainInfo = [
   },
 ];
 
-const SvgStar = ({ top, left, size }) => {
-  const svgContent = (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="57"
-      height="57"
-      viewBox="0 0 57 57"
-      fill="none"
-    >
-      <g clipPath="url(#clip0_668_350)">
-        <path
-          fillRule="evenodd"
-          clipRule="evenodd"
-          d="M32.6501 3.53007C31.3781 0.0380716 26.4421 0.0380716 25.1701 3.53007L19.3981 19.3981L3.53013 25.1701C0.0381327 26.4421 0.0381327 31.3781 3.53013 32.6501L19.3981 38.4221L25.1701 54.2901C26.4421 57.7821 31.3781 57.7821 32.6501 54.2901L38.4221 38.4221L54.2901 32.6501C57.7821 31.3781 57.7821 26.4421 54.2901 25.1701L38.4221 19.3981L32.6501 3.53007Z"
-          fill="#CCCCCC"
-        />
-      </g>
-      <defs>
-        <clipPath id="clip0_668_350">
-          <rect
-            width="56"
-            height="56"
-            fill="white"
-            transform="translate(0.910889 0.910828)"
-          />
-        </clipPath>
-      </defs>
-    </svg>
-  );
-
-  return (
-    <div
-      className="absolute"
-      style={{
-        top: `${top}%`,
-        left: `${left}%`,
-        width: `${size}px`,
-        height: `${size}px`,
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      {svgContent}
-    </div>
-  );
-};
-
-const SvgStarsBackground = ({ numberOfSvgStars = 4 }) => {
-  const [svgStars, setSvgStars] = useState([]);
-
-  useEffect(() => {
-    const generateSvgStars = () => {
-      const newSvgStars = [];
-      for (let i = 0; i < numberOfSvgStars; i++) {
-        newSvgStars.push({
-          id: i,
-          top: Math.random() * 100,
-          left: Math.random() * 100,
-          size: Math.random() * 30 + 15,
-        });
-      }
-      setSvgStars(newSvgStars);
-    };
-
-    generateSvgStars();
-  }, [numberOfSvgStars]);
-
-  return (
-    <div className="-z-20 absolute -top-0 left-0 w-full h-full pointer-events-none overflow-hidden">
-      {svgStars.map((star) => (
-        <SvgStar
-          key={star.id}
-          top={star.top}
-          left={star.left}
-          size={star.size}
-          duration={star.duration}
-          delay={star.delay}
-        />
-      ))}
-    </div>
-  );
-};
-
 const GreenDot = ({ top, right, size, delay, duration }) => {
   return (
     <motion.div
@@ -310,10 +226,10 @@ const DomainDetailPopup = ({ domain, onClose, height }) => {
           />
         </div>
         <div className="sm:w-2/3 h-1/2 flex flex-col items-center justify-start text-center text-white -mt-36 sm:-mt-32">
-          <h1 className="text-3xl sm:text-6xl manrope uppercase font-extrabold mb-2 sm:mb-10">
+          <h1 className="text-xl sm:text-6xl manrope uppercase font-extrabold mb-2 sm:mb-10">
             About {domain.title}
           </h1>
-          <p className="-mt-2 text-base sm:text-2xl afacad sm:leading-[3rem] sm:px-32 px-7">
+          <p className="mt-1 text-sm sm:text-2xl afacad sm:leading-[3rem] sm:px-32 px-5">
             {domain.description}
           </p>
         </div>
@@ -402,7 +318,6 @@ const DomainsPageContent = ({ activeDomain, setActiveDomain }) => {
         <img src="/vector21.svg" alt="" className="absolute left-0" />
         <Stars />
         <GreenDots />
-        <SvgStarsBackground />
         <motion.div
           className="z-20 absolute w-full px-10 sm:mt-20 top-20 sm:top-10"
           initial={{ opacity: 0 }}
@@ -457,7 +372,7 @@ const DomainsPageContent = ({ activeDomain, setActiveDomain }) => {
           />
         </motion.div>
         <div className="w-full h-full relative z-50">
-          <div className="absolute -top-40 size-[19rem] left-[10vw] right-auto sm:size-[36rem] sm:-top-60 sm:right-32 sm:left-auto flex items-center justify-center">
+          <div className="absolute -top-[11.5rem] size-[19rem] left-[10vw] right-auto sm:size-[36rem] sm:-top-60 sm:right-32 sm:left-auto flex items-center justify-center">
             <img
               src="/vector24.svg"
               alt="Track"
