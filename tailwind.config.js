@@ -10,6 +10,11 @@ module.exports = {
         "gradient-green":
           "linear-gradient(90deg, rgba(77, 168, 234, 0.7) 0%, rgba(0, 216, 86, 0.7) 100%)",
       },
+      fontFamily: {
+        audiowide: ["Audiowide", "cursive"],
+        "braah-one": ['"Braah One"', "sans-serif"],
+        poppins: ["Poppins", "sans-serif"],
+      },
     },
   },
   plugins: [],
