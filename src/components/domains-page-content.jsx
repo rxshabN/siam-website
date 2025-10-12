@@ -283,17 +283,17 @@ const DomainDetailPopup = ({ domain, onClose, height }) => {
       <img
         src={isMobile1 ? "/vector36.svg" : "/vector26.svg"}
         alt=""
-        className="absolute size-[100%] sm:size-[95%] top-80"
+        className="absolute size-[90%] sm:size-[95%] top-80"
       />
       <button
         onClick={onClose}
-        className="audiowide mt-3 px-8 sm:px-12 py-2 bg-gradient-to-r from-[#2b684e] to-[#001b0c] text-white rounded-2xl z-50 text-xl sm:text-3xl absolute bottom-14 sm:bottom-20"
+        className="audiowide mt-3 px-8 sm:px-12 py-2 bg-gradient-to-r from-[#2b684e] to-[#001b0c] text-white rounded-2xl z-50 text-xl sm:text-3xl absolute bottom-7 sm:bottom-20"
       >
         Back
       </button>
       <div className="flex sm:flex-row flex-col items-center justify-center h-full w-full p-5">
         <div className="sm:w-1/3 h-1/2 sm:block flex items-center justify-center relative">
-          <div className="absolute -top-16 left-24 sm:left-[10.5rem] rounded-3xl w-[10rem] h-[10rem] sm:w-[20rem] sm:h-[22rem] backdrop-blur-xl p-5 bg-[#00000040] flex items-center justify-center">
+          <div className="absolute -top-16 left-[4.25rem] sm:left-[10.5rem] rounded-3xl w-[10rem] h-[10rem] sm:w-[20rem] sm:h-[22rem] backdrop-blur-xl p-5 bg-[#00000040] flex items-center justify-center">
             <img src="/vector28.svg" alt="" className="absolute size-[95%]" />
             <div className="relative bg-transparent size-[95%]">
               <img
@@ -306,14 +306,14 @@ const DomainDetailPopup = ({ domain, onClose, height }) => {
           <img
             src="/vector27.svg"
             alt=""
-            className="relative size-[80%] sm:size-[95%] -top-10 sm:left-20 sm:top-40"
+            className="relative size-[80%] sm:size-[90%] -top-2 left-2 sm:left-28 sm:top-52"
           />
         </div>
-        <div className="sm:w-2/3 h-1/2 flex flex-col items-center justify-start text-center text-white -mt-52 sm:-mt-32">
-          <h1 className="text-3xl sm:text-6xl manrope uppercase font-extrabold mb-10">
+        <div className="sm:w-2/3 h-1/2 flex flex-col items-center justify-start text-center text-white -mt-36 sm:-mt-32">
+          <h1 className="text-3xl sm:text-6xl manrope uppercase font-extrabold mb-2 sm:mb-10">
             About {domain.title}
           </h1>
-          <p className="text-lg sm:text-2xl afacad sm:leading-[3.5rem] sm:px-32">
+          <p className="text-base sm:text-2xl afacad sm:leading-[3.5rem] sm:px-32">
             {domain.description}
           </p>
         </div>
@@ -409,21 +409,29 @@ const DomainsPageContent = ({ activeDomain, setActiveDomain }) => {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.3, ease: easeOut }}
         >
-          <h1 className="audiowide uppercase z-20 text-center sm:text-left text-white sm:text-[40px] text-[26px]">
+          <h1 className="audiowide uppercase z-20 text-center sm:text-left text-white sm:text-[40px] text-[20px]">
             Welcome to the SIAM Skill galaxy
           </h1>
-          <div className="z-50 rounded-3xl w-[14rem] h-[9rem] sm:w-[23rem] sm:h-[17rem] backdrop-blur-2xl p-5 bg-[#c7e1db0b] flex items-center justify-center relative top-[26rem] left-[2.75rem] sm:top-14 sm:left-14">
-            <img src="/vector22.svg" alt="" className="absolute size-[97%]" />
-            <span className="text-white braah-one text-lg sm:text-3xl z-50 text-center leading-relaxed">
-              Curious about our domains? <br /> Tap an icon to dive in!
-            </span>
+          {/* 1. Outer div for the gradient border */}
+          <div
+            className="z-50 rounded-3xl w-[20rem] h-[5rem] sm:w-[23rem] sm:h-[17rem] p-[3px] bg-[#c7e1db0b] relative top-[23rem] right-[0.8rem] sm:top-14 sm:left-14"
+            style={{
+              boxShadow: "0 0 10px 2px rgba(0, 27, 12, 0.15)",
+            }}
+          >
+            {/* 2. Inner div for the content background */}
+            <div className="w-full h-full bg-gradient-to-r from-[#005f213f] to-[#009c3967] backdrop-blur-2xl rounded-[22px] flex items-center justify-center">
+              <span className="text-white braah-one text-base sm:text-3xl text-center leading-relaxed">
+                Curious about our domains? <br /> Tap an icon to dive in!
+              </span>
+            </div>
           </div>
           <motion.img
             src={isMobile1 ? "/vector33.svg" : "/orb.svg"}
             alt=""
-            className="z-30 absolute top-[42rem] left-[11.5rem] sm:left-60 sm:top-[28rem]"
+            className="z-30 absolute top-[32.5rem] left-[11.5rem] sm:left-60 sm:top-[28rem]"
             animate={{
-              y: [0, -15, 0],
+              y: isMobile ? [0, -5, 0] : [0, -15, 0],
             }}
             transition={{
               y: {
@@ -436,11 +444,11 @@ const DomainsPageContent = ({ activeDomain, setActiveDomain }) => {
           <img
             src={isMobile1 ? "/vector34.svg" : "/base.svg"}
             alt=""
-            className="absolute top-[43rem] left-40 sm:left-40 sm:top-[28rem]"
+            className="absolute top-[32.5rem] left-40 sm:left-40 sm:top-[28rem]"
           />
         </motion.div>
         <div className="w-full h-full relative z-50">
-          <div className="absolute -top-56 size-[19rem] left-[11.25%] right-auto sm:size-[36rem] sm:-top-60 sm:right-20 sm:left-auto flex items-center justify-center">
+          <div className="absolute -top-40 size-[19rem] left-[10vw] right-auto sm:size-[36rem] sm:-top-60 sm:right-20 sm:left-auto flex items-center justify-center">
             <img
               src="/vector24.svg"
               alt="Track"

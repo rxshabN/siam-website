@@ -118,40 +118,48 @@ const GreenDot = ({ top, right, size, delay, duration }) => {
   );
 };
 
-const GreenDots = ({ numberOfDots = 7 }) => {
+const GreenDots = ({ numberOfDots = 7, isMobile }) => {
   const [dots, setDots] = useState([]);
 
   useEffect(() => {
     const generateDots = () => {
       const newDots = [];
       for (let i = 0; i < numberOfDots; i++) {
-        newDots.push({
-          id: i,
-          top: 84 + Math.random() * 14,
-          right: 10 + Math.random() * 10,
-          size: Math.random() * 4 + 4,
-          duration: Math.random() * 4 + 4,
-          delay: Math.random() * 2,
-        });
+        if (isMobile) {
+          // Full-screen random positioning for mobile
+          newDots.push({
+            id: i,
+            top: Math.random() * 100,
+            left: Math.random() * 100, // Use 'left' for full spread
+            size: Math.random() * 4 + 4,
+          });
+        } else {
+          // Original clustered positioning for desktop
+          newDots.push({
+            id: i,
+            top: 77 + Math.random() * 14,
+            right: 20 + Math.random() * 10,
+            size: Math.random() * 4 + 4,
+            duration: Math.random() * 4 + 4,
+            delay: Math.random() * 2,
+          });
+        }
       }
       setDots(newDots);
     };
 
     generateDots();
-  }, [numberOfDots]);
+  }, [numberOfDots, isMobile]);
 
   return (
     <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
-      {dots.map((dot) => (
-        <GreenDot
-          key={dot.id}
-          top={dot.top}
-          right={dot.right}
-          size={dot.size}
-          duration={dot.duration}
-          delay={dot.delay}
-        />
-      ))}
+      {dots.map((dot) =>
+        isMobile ? (
+          <StaticGreenDot key={dot.id} {...dot} />
+        ) : (
+          <GreenDot key={dot.id} {...dot} />
+        )
+      )}
     </div>
   );
 };
@@ -182,18 +190,47 @@ const Star = ({ top, left, delay, duration }) => {
   );
 };
 
-const Stars = ({ numberOfStars = 35 }) => {
-  const isMobile1 = useIsMobile();
+const StaticGreenDot = ({ top, left, size }) => (
+  <div
+    className="absolute rounded-full"
+    style={{
+      top: `${top}%`,
+      left: `${left}%`,
+      width: `${size}px`,
+      height: `${size}px`,
+      backgroundColor: "#0CE46C",
+      boxShadow: "0 0 8px 4px rgba(0, 27, 12, 1)",
+    }}
+  />
+);
+
+const StaticStar = ({ top, left }) => (
+  <div
+    className="absolute rounded-full bg-white"
+    style={{
+      top: `${top}%`,
+      left: `${left}%`,
+      width: "4px",
+      height: "4px",
+    }}
+  />
+);
+
+const Stars = ({ numberOfStars = 35, isMobile }) => {
   const [stars, setStars] = useState([]);
 
   useEffect(() => {
     const generateStars = () => {
       const newStars = [];
+      // Use the isMobile prop to determine the range for top and left
+      const topRange = isMobile ? 100 : 60;
+      const leftRange = isMobile ? 100 : 60;
+
       for (let i = 0; i < numberOfStars; i++) {
         newStars.push({
           id: i,
-          top: Math.random() * (isMobile1 ? 100 : 60),
-          left: Math.random() * (isMobile1 ? 100 : 60),
+          top: Math.random() * topRange,
+          left: Math.random() * leftRange,
           duration: Math.random() * 5 + 5,
           delay: Math.random() * 3,
         });
@@ -202,19 +239,22 @@ const Stars = ({ numberOfStars = 35 }) => {
     };
 
     generateStars();
-  }, [numberOfStars]);
+  }, [numberOfStars, isMobile]);
+
+  // Conditionally apply positioning to the container
+  const containerClassName = isMobile
+    ? "absolute top-0 left-0 w-full h-full pointer-events-none"
+    : "absolute -top-24 -left-16 w-full h-full pointer-events-none";
 
   return (
-    <div className="absolute -top-24 -left-16 w-full h-full pointer-events-none">
-      {stars.map((star) => (
-        <Star
-          key={star.id}
-          top={star.top}
-          left={star.left}
-          duration={star.duration}
-          delay={star.delay}
-        />
-      ))}
+    <div className={containerClassName}>
+      {stars.map((star) =>
+        isMobile ? (
+          <StaticStar key={star.id} {...star} />
+        ) : (
+          <Star key={star.id} {...star} />
+        )
+      )}
     </div>
   );
 };
@@ -222,7 +262,11 @@ const Stars = ({ numberOfStars = 35 }) => {
 const AboutPageContent = () => {
   const isMobile = useIsMobile();
   return (
-    <div className="overflow-hidden relative z-10 min-h-screen min-w-screen bg-black poppins flex flex-col justify-center items-center">
+    <div
+      className={`${
+        isMobile ? "overflow-y-auto" : "overflow-hidden"
+      } relative z-10 min-h-screen min-w-screen bg-black poppins flex flex-col justify-center items-center`}
+    >
       <img
         src={isMobile ? "/grid-mobile.png" : "/grid.png"}
         alt=""
@@ -233,11 +277,11 @@ const AboutPageContent = () => {
         alt=""
         className="absolute sm:-bottom-2/3 sm:-right-20 sm:size-[120rem] bottom-0 w-full h-full"
       />
-      <Stars />
-      <GreenDots />
+      <Stars isMobile={isMobile} />
+      <GreenDots isMobile={isMobile} />
       <SvgStarsBackground />
       <motion.div
-        className="z-20 absolute content-container sm:mt-20 top-20 sm:top-10 content-container"
+        className="z-20 absolute sm:mt-20 top-20 sm:top-10"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.3, ease: easeOut }}
@@ -254,7 +298,7 @@ const AboutPageContent = () => {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: easeOut, delay: 0.5 }}
-          className="sm:mt-8 mt-4 z-20 text-center text-white sm:text-[58px] text-[34px] mx-10 sm:mx-32"
+          className="sm:mt-8 mt-4 z-20 text-center text-white sm:text-[58px] text-[34px] mx-2 sm:mx-32"
         >
           Built by Students. <br className="sm:hidden block" />
           Backed by Vision.
@@ -263,7 +307,7 @@ const AboutPageContent = () => {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: easeOut, delay: 0.8 }}
-          className="z-50 leading-[2.5rem] sm:leading-none afacad relative text-center text-white sm:text-[26px] text-[18px] mx-6 sm:mx-96 mt-2 sm:mt-16"
+          className="z-50 leading-[1.7rem] sm:leading-none afacad relative text-center text-white sm:text-[26px] text-[18px] mx-4 sm:mx-96 mt-2 sm:mt-16"
         >
           SIAM is a globally recognized organization dedicated to bridging the
           gap between mathematics and technology. Headquartered in Philadelphia,

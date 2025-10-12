@@ -142,7 +142,7 @@ const LandingPageContent = () => {
   const isMobile = useIsMobile();
 
   return (
-    <div className="braah-one sm:w-full sm:h-full max-w-screen sm:min-h-screen min-h-screen">
+    <div className="braah-one sm:w-full sm:h-full max-w-screen min-h-screen">
       <Stars />
       <GreenDots />
       <AnimatedLines />
@@ -157,12 +157,12 @@ const LandingPageContent = () => {
           <img
             src="/vector.svg"
             alt=""
-            className="size-32 absolute -bottom-16 left-5 sm:size-72 sm:top-10 sm:left-16 sm:bottom-auto"
+            className="size-32 absolute -bottom-6 left-5 sm:size-72 sm:top-10 sm:left-16 sm:bottom-auto"
           />
           <img
             src="/vector-2.svg"
             alt=""
-            className="size-14 absolute left-32 -bottom-20 sm:left-96 sm:top-8"
+            className="size-14 absolute left-32 -bottom-10 sm:left-96 sm:top-8"
           />
           <img
             src="/vector-3.svg"
@@ -192,7 +192,7 @@ const LandingPageContent = () => {
               ease: easeOut,
               delay: 0.2,
             }}
-            className="sm:w-[60%] mx-5 mt-32 sm:mt-10 text-center audiowide uppercase text-white font-bold sm:text-[64px] text-[26px] sm:mx-auto leading-[1.3]"
+            className="sm:w-[60%] mx-1 mt-10 text-center audiowide uppercase text-white font-bold sm:text-[64px] text-[26px] sm:mx-auto leading-[1.3]"
           >
             Society for Industrial & Applied Mathematics
           </motion.h1>
@@ -204,7 +204,7 @@ const LandingPageContent = () => {
               ease: easeOut,
               delay: 0.4,
             }}
-            className="text-center uppercase poppins font-normal sm:text-[20px] text-[14px] text-white my-7 tracking-[0.45rem]"
+            className="text-center uppercase poppins font-normal mx-0.5 sm:text-[20px] text-[14px] text-white my-7 sm:tracking-[0.45rem] tracking-[0.25rem]"
           >
             Turning knowledge into power
           </motion.h2>
@@ -227,7 +227,7 @@ const LandingPageContent = () => {
               ease: easeOut,
               delay: 0.9,
             }}
-            className="mt-8 braah-one text-white sm:text-[20px] text-[16px] sm:leading-10 sm:mx-auto sm:w-3/5 mx-10 text-center mb-10 sm:mb-5"
+            className="mt-8 braah-one text-white sm:text-[20px] text-[16px] sm:leading-10 sm:mx-auto sm:w-3/5 mx-2 text-center mb-10 sm:mb-5"
           >
             Applied mathematics, computational and data science are essential to
             moving society forward and solving many of the world’s most pressing
@@ -244,7 +244,7 @@ const LandingPageContent = () => {
                 ease: easeOut,
                 delay: 1.2,
               }}
-              className="z-50 mx-auto poppins flex gap-x-2 items-center justify-center border border-white uppercase rounded-full px-5 sm:px-14 py-2 font-light text-white relative"
+              className="z-50 mx-auto poppins flex gap-x-2 items-center justify-center border border-white uppercase rounded-full px-5 sm:px-14 py-2 mb-10 font-light text-white relative"
             >
               <span className="">2024 Highlights</span>
               <img src="mdi_wand.svg" alt="" />

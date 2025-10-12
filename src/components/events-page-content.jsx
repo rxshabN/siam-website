@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, easeOut, AnimatePresence } from "framer-motion";
+import useIsMobile from "../hooks/useIsMobile";
 
 const SvgStar = ({ top, left, size }) => {
   const svgContent = (
@@ -156,6 +157,7 @@ const GreenDots = ({ numberOfDots = 7 }) => {
 };
 
 const GreenDots1 = ({ numberOfDots = 7 }) => {
+  const isMobile = useIsMobile();
   const [dots, setDots] = useState([]);
 
   useEffect(() => {
@@ -164,7 +166,7 @@ const GreenDots1 = ({ numberOfDots = 7 }) => {
       for (let i = 0; i < numberOfDots; i++) {
         newDots.push({
           id: i,
-          top: 96 + Math.random() * 14,
+          top: (isMobile ? 280 : 160) + Math.random() * 14,
           right: 46 + Math.random() * 10,
           size: Math.random() * 4 + 4,
           duration: Math.random() * 4 + 4,
@@ -220,6 +222,7 @@ const Star = ({ top, left, delay, duration }) => {
 };
 
 const Stars = ({ numberOfStars = 15 }) => {
+  const isMobile = useIsMobile();
   const [stars, setStars] = useState([]);
 
   useEffect(() => {
@@ -228,8 +231,8 @@ const Stars = ({ numberOfStars = 15 }) => {
       for (let i = 0; i < numberOfStars; i++) {
         newStars.push({
           id: i,
-          top: Math.random() * 120,
-          left: Math.random() * 55,
+          top: Math.random() * (isMobile ? 100 : 120),
+          left: Math.random() * (isMobile ? 100 : 55),
           duration: Math.random() * 5 + 5,
           delay: Math.random() * 3,
         });
@@ -255,93 +258,138 @@ const Stars = ({ numberOfStars = 15 }) => {
   );
 };
 
-const ViewA = ({ onBack }) => (
-  <>
-    <motion.div
-      key="viewA"
-      initial={{ opacity: 0, y: 50 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -50 }}
-      transition={{ duration: 0, ease: easeOut }}
-      className="w-full h-screen flex flex-col justify-center items-center absolute"
-    >
-      <img
-        src="/vector-3.svg"
-        alt=""
-        className="absolute -top-1/3 left-10 -rotate-90"
-      />
-      <img
-        src="/vector-3.svg"
-        alt=""
-        className="absolute -top-1/3 -right-20 -rotate-90"
-      />
-      <img src="/vector18.svg" alt="" className="absolute left-28 top-32" />
-      <img
-        src="/vector.svg"
-        alt=""
-        className="size-20 right-24 absolute top-32"
-      />
-      <img
-        src="/vector.svg"
-        alt=""
-        className="size-20 left-40 absolute top-28"
-      />
+const ViewA = ({ onBack }) => {
+  const isMobile = useIsMobile();
+  return (
+    <>
       <motion.div
+        key="viewA"
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7, ease: easeOut, delay: 0.2 }}
-        className="flex items-center justify-between w-full px-10 mt-10"
+        exit={{ opacity: 0, y: -50 }}
+        transition={{ duration: 0, ease: easeOut }}
+        className="w-full h-screen flex flex-col justify-center items-center absolute"
       >
-        <div className="z-50 rounded-3xl w-[26.5rem] h-[27rem] relative -top-14">
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, ease: easeOut, delay: 0.1 }}
+          className="z-50 rounded-3xl w-[10rem] h-[11rem] absolute top-20 left-4 sm:hidden block"
+        >
           <img src="/mpl-1.png" alt="" className="object-contain rounded-3xl" />
-        </div>
-        <div className="z-50 rounded-3xl w-[30rem] h-[27rem] backdrop-blur-xl p-5 bg-[#001b0c9a] flex items-center justify-center relative -top-14">
-          <img src="/vector19.svg" alt="" className="absolute size-[95%]" />
-
-          <div className="text-whhite z-50 flex items-center justify-start flex-col gap-1">
-            <span className="text-white audiowide uppercase text-3xl text-center">
-              Math Premier League
-            </span>
-            <span className="text-white poppins uppercase text-sm leading-tight text-center tracking-[0.2rem] mt-2">
-              Three rounds. one champion. <br />
-              infinite excitement.
-            </span>
-            <img src="/vector20.svg" alt="" className="size-[70%] mb-3 mt-2" />
-            <p className="manrope leading-[2.5rem] text-center text-white px-6 text-md">
-              Math Premier League is a fun, team-based event blending math and
-              interactive challenges. It features a Coding Relay, a clue-based
-              Treasure Hunt, and a Jeopardy-style quiz spanning diverse topics.
-              The event promotes teamwork, problem-solving and plenty of
-              excitement.
-            </p>
-          </div>
-        </div>
-        <div className="z-50 rounded-3xl w-[26.5rem] h-[27rem] relative -top-14">
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, ease: easeOut, delay: 0.3 }}
+          className="z-50 rounded-3xl w-[10rem] h-[11rem] absolute top-[27rem] right-4 sm:hidden block"
+        >
           <img src="/mpl-2.png" alt="" className="object-contain rounded-3xl" />
-        </div>
+        </motion.div>
+        <img
+          src="/vector-3.svg"
+          alt=""
+          className="absolute -top-1/3 left-10 -rotate-90 sm:block hidden"
+        />
+        <img
+          src="/vector-3.svg"
+          alt=""
+          className="absolute -top-1/3 -right-20 -rotate-90 sm:block hidden"
+        />
+        <img
+          src="/vector18.svg"
+          alt=""
+          className="absolute left-28 top-32 sm:block hidden"
+        />
+        <img
+          src="/vector.svg"
+          alt=""
+          className="size-20 right-10 sm:right-24 absolute top-32"
+        />
+        <img
+          src="/vector.svg"
+          alt=""
+          className="size-44 left-5 absolute top-[26rem] sm:hidden block"
+        />
+        <img
+          src="/vector.svg"
+          alt=""
+          className="size-10 sm:size-20 right-24 sm:left-40 absolute top-28"
+        />
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease: easeOut, delay: 0.2 }}
+          className="flex items-center justify-between w-full sm:px-10 mt-10"
+        >
+          <div className="sm:block hidden z-50 rounded-3xl w-[26.5rem] h-[27rem] relative -top-14">
+            <img
+              src="/mpl-1.png"
+              alt=""
+              className="object-contain rounded-3xl"
+            />
+          </div>
+          <div className="z-50 rounded-3xl mx-auto w-[15rem] sm:w-[30rem] h-[16rem] sm:h-[27rem] backdrop-blur-xl p-5 bg-[#001b0c9a] flex items-center justify-center relative top-6 sm:-top-14">
+            <img
+              src={isMobile ? "/vector38.svg" : "/vector19.svg"}
+              alt=""
+              className="absolute size-[95%]"
+            />
+
+            <div className="text-white z-50 flex items-center justify-start flex-col gap-1">
+              <span className="text-white audiowide uppercase text-sm sm:text-3xl text-center">
+                Math Premier League
+              </span>
+              <span className="text-white poppins uppercase sm:text-xl text-[0.65rem] leading-tight text-center tracking-wide sm:tracking-[0.2rem] sm:mt-2">
+                Three rounds. one champion. <br />
+                infinite excitement.
+              </span>
+              <img
+                src="/vector20.svg"
+                alt=""
+                className="size-[70%] sm:mb-3 my-1 sm:mt-2"
+              />
+              <p className="manrope leading-normal sm:leading-[2.5rem] text-center text-white sm:px-6 text-xs sm:text-base">
+                Math Premier League is a fun, team-based event blending math and
+                interactive challenges. It features a Coding Relay, a clue-based
+                Treasure Hunt, and a Jeopardy-style quiz spanning diverse
+                topics. The event promotes teamwork, problem-solving and plenty
+                of excitement.
+              </p>
+            </div>
+          </div>
+          <div className="sm:block hidden z-50 rounded-3xl w-[26.5rem] h-[27rem] relative -top-14">
+            <img
+              src="/mpl-2.png"
+              alt=""
+              className="object-contain rounded-3xl"
+            />
+          </div>
+        </motion.div>
+        <motion.button
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease: easeOut, delay: 0.6 }}
+          onClick={onBack}
+          className="sm:top-0 top-20 sm:left-0 right-28 relative audiowide mt-3 px-6 sm:px-12 py-2 bg-gradient-to-r from-[#2b684e] to-[#001b0c] text-white rounded-2xl z-50 text-xl sm:text-3xl"
+        >
+          Back
+        </motion.button>
       </motion.div>
-      <motion.button
+      <motion.span
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7, ease: easeOut, delay: 2.3 }}
-        onClick={onBack}
-        className="audiowide mt-3 px-12 py-2 bg-gradient-to-r from-[#2b684e] to-[#001b0c] text-white rounded-2xl z-50 text-3xl"
+        transition={{ duration: 0.7, ease: easeOut, delay: 1 }}
+        className="text-[4.5rem] sm:text-[20rem] italic bg-gradient-to-b from-[#4a4a4a] via-[#4a4a4a6d] to-transparent text-transparent bg-clip-text fixed -bottom-2 sm:-bottom-24 cursor-default"
       >
-        Back
-      </motion.button>
-    </motion.div>
-    <motion.span
-      initial={{ opacity: 0, y: 50 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.7, ease: easeOut, delay: 1 }}
-      className="text-[20rem] italic bg-gradient-to-b from-[#4a4a4a] via-[#4a4a4a6d] to-transparent text-transparent bg-clip-text fixed -bottom-24 cursor-default"
-    >
-      GRAVITAS
-    </motion.span>
-  </>
-);
+        GRAVITAS
+      </motion.span>
+    </>
+  );
+};
 
-const ViewB = ({ onBack }) => {
+const ViewB = ({ onBack, onNext }) => {
+  const isMobile = useIsMobile();
   const [contentIndex, setContentIndex] = useState(0);
 
   const viewBData = [
@@ -352,6 +400,7 @@ const ViewB = ({ onBack }) => {
         "Triwizard Tournament is a magical, team-based event filled with fun games, logic puzzles and creative challenges. Teams compete to earn points with tiebreakers and a thrilling finale crowning the ultimate wizards or witches. A perfect blend of teamwork, strategy and enchantment!",
       img1: "/riviera-1.png",
       img2: "/riviera-2.png",
+      bgText: "RIVIERA",
     },
     {
       title: "Shipwreck Showdown",
@@ -360,6 +409,7 @@ const ViewB = ({ onBack }) => {
         "Shipwreck Showdown is a thrilling pirate-themed adventure featuring five rounds of puzzles, games and challenges. It is filled with excitement and clever twists & this event tests the sharpness and teamwork of every participant as they navigate high-seas chaos.",
       img1: "/riviera-3.png",
       img2: "/riviera-4.png",
+      bgText: "RIVIERA",
     },
   ];
 
@@ -373,31 +423,100 @@ const ViewB = ({ onBack }) => {
     <>
       <motion.div
         key="viewB"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -50 }}
+        transition={{ duration: 0, ease: easeOut }}
         className="w-full h-screen flex flex-col justify-center items-center absolute"
       >
+        <AnimatePresence>
+          {contentIndex === 0 && (
+            <>
+              <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, ease: easeOut, delay: 0.1 }}
+                className="z-50 rounded-3xl w-[10rem] h-[11rem] absolute top-20 left-4 sm:hidden block"
+              >
+                <img
+                  src="/riviera-1.png"
+                  alt=""
+                  className="object-contain rounded-3xl"
+                />
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, ease: easeOut, delay: 0.3 }}
+                className="z-50 rounded-3xl w-[10rem] h-[11rem] absolute top-[27rem] right-4 sm:hidden block"
+              >
+                <img
+                  src="/riviera-2.png"
+                  alt=""
+                  className="object-contain rounded-3xl"
+                />
+              </motion.div>
+            </>
+          )}
+          {contentIndex === 1 && (
+            <>
+              <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, ease: easeOut, delay: 0.1 }}
+                className="z-50 rounded-3xl w-[10rem] h-[11rem] absolute top-20 left-4 sm:hidden block"
+              >
+                <img
+                  src="/riviera-3.png"
+                  alt=""
+                  className="object-contain rounded-3xl"
+                />
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, ease: easeOut, delay: 0.3 }}
+                className="z-50 rounded-3xl w-[10rem] h-[11rem] absolute top-[27rem] right-4 sm:hidden block"
+              >
+                <img
+                  src="/riviera-4.png"
+                  alt=""
+                  className="object-contain rounded-3xl"
+                />
+              </motion.div>
+            </>
+          )}
+        </AnimatePresence>
+
         <img
           src="/vector-3.svg"
           alt=""
-          className="absolute -top-1/3 left-10 -rotate-90"
+          className="absolute -top-1/3 left-10 -rotate-90 sm:block hidden"
         />
         <img
           src="/vector-3.svg"
           alt=""
-          className="absolute -top-1/3 -right-20 -rotate-90"
+          className="absolute -top-1/3 -right-20 -rotate-90 sm:block hidden"
         />
-        <img src="/vector18.svg" alt="" className="absolute left-28 top-32" />
+        <img
+          src="/vector18.svg"
+          alt=""
+          className="absolute left-28 top-32 sm:block hidden"
+        />
         <img
           src="/vector.svg"
           alt=""
-          className="size-20 right-24 absolute top-32"
+          className="size-20 right-10 sm:right-24 absolute top-32"
         />
         <img
           src="/vector.svg"
           alt=""
-          className="size-20 left-40 absolute top-28"
+          className="size-44 left-5 absolute top-[26rem] sm:hidden block"
+        />
+        <img
+          src="/vector.svg"
+          alt=""
+          className="size-10 sm:size-20 right-24 sm:left-40 absolute top-28"
         />
 
         <AnimatePresence mode="wait">
@@ -407,35 +526,39 @@ const ViewB = ({ onBack }) => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -30 }}
             transition={{ duration: 0.5, ease: easeOut }}
-            className="flex items-center justify-between w-full px-10"
+            className="flex items-center justify-between w-full sm:px-10 mt-10"
           >
-            <div className="z-50 rounded-3xl w-[26.5rem] h-[27rem] relative">
+            <div className="sm:block hidden z-50 rounded-3xl w-[26.5rem] h-[27rem] relative -top-14">
               <img
                 src={currentContent.img1}
                 alt=""
                 className="object-contain rounded-3xl"
               />
             </div>
-            <div className="z-50 rounded-3xl w-[30rem] h-[27rem] backdrop-blur-xl p-5 bg-[#001b0c9a] flex items-center justify-center relative">
-              <img src="/vector19.svg" alt="" className="absolute size-[95%]" />
+            <div className="z-50 rounded-3xl mx-auto w-[15rem] sm:w-[30rem] h-[17rem] sm:h-[27rem] backdrop-blur-xl p-5 bg-[#001b0c9a] flex items-center justify-center relative top-6 sm:-top-14">
+              <img
+                src={isMobile ? "/vector38.svg" : "/vector19.svg"}
+                alt=""
+                className="absolute size-[100%]"
+              />
               <div className="text-white z-50 flex items-center justify-start flex-col gap-1">
-                <span className="audiowide uppercase text-3xl text-center">
+                <span className="text-white audiowide uppercase text-sm sm:text-3xl text-center">
                   {currentContent.title}
                 </span>
-                <span className="poppins uppercase text-sm leading-tight text-center tracking-[0.2rem] mt-2 whitespace-pre-line">
+                <span className="text-white poppins uppercase sm:text-xl text-[0.65rem] leading-tight text-center tracking-wide sm:tracking-[0.2rem] sm:mt-2 whitespace-pre-line">
                   {currentContent.subTitle}
                 </span>
                 <img
                   src="/vector20.svg"
                   alt=""
-                  className="size-[70%] mb-3 mt-2"
+                  className="size-[70%] sm:mb-3 my-1 sm:mt-2"
                 />
-                <p className="manrope leading-[2.5rem] text-center px-6 text-md">
+                <p className="manrope leading-normal sm:leading-[2.5rem] text-center text-white sm:px-6 text-xs sm:text-base">
                   {currentContent.description}
                 </p>
               </div>
             </div>
-            <div className="z-50 rounded-3xl w-[26.5rem] h-[27rem] relative">
+            <div className="sm:block hidden z-50 rounded-3xl w-[26.5rem] h-[27rem] relative -top-14">
               <img
                 src={currentContent.img2}
                 alt=""
@@ -444,29 +567,37 @@ const ViewB = ({ onBack }) => {
             </div>
           </motion.div>
         </AnimatePresence>
+
         <motion.button
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease: easeOut, delay: 0.6 }}
           onClick={onBack}
-          className="audiowide mt-12 px-12 py-2 bg-gradient-to-r from-[#2b684e] to-[#001b0c] text-white rounded-2xl z-50 text-3xl bg-[length:200%_auto] hover:bg-right transition-all duration-500"
+          className="sm:top-0 top-20 sm:left-0 right-28 relative audiowide mt-3 px-6 sm:px-12 py-2 bg-gradient-to-r from-[#2b684e] to-[#001b0c] text-white rounded-2xl z-50 text-xl sm:text-3xl bg-[length:200%_auto] hover:bg-right transition-all duration-500"
         >
           Back
         </motion.button>
       </motion.div>
-      <motion.span
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7, ease: easeOut, delay: 1 }}
-        className="text-[20rem] italic bg-gradient-to-b from-[#4a4a4a] via-[#4a4a4a6d] to-transparent text-transparent bg-clip-text fixed -bottom-24 cursor-default"
-      >
-        RIVIERA
-      </motion.span>
+      <AnimatePresence mode="wait">
+        <motion.span
+          key={currentContent.bgText}
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -50 }}
+          transition={{ duration: 0.7, ease: easeOut, delay: 0.2 }}
+          className="text-[4.5rem] sm:text-[20rem] italic bg-gradient-to-b from-[#4a4a4a] via-[#4a4a4a6d] to-transparent text-transparent bg-clip-text fixed -bottom-2 sm:-bottom-24 cursor-default"
+        >
+          {currentContent.bgText}
+        </motion.span>
+      </AnimatePresence>
       <motion.img
         onClick={handleNavigation}
         src="/vector17.svg"
-        alt="Next View"
-        className="absolute bottom-10 size-32 right-5 cursor-pointer z-50"
+        alt="Navigate Events"
+        className="absolute bottom-2 sm:bottom-10 size-16 sm:size-32 right-5 cursor-pointer z-50"
         animate={{
           rotate: contentIndex === 0 ? 0 : 180,
-          x: contentIndex === 0 ? 0 : "calc(-100vw + 11rem)",
+          x: contentIndex === 0 ? 0 : isMobile ? 0 : "calc(-100vw + 11rem)",
         }}
         transition={{ duration: 0.7, ease: easeOut }}
       />
@@ -475,6 +606,7 @@ const ViewB = ({ onBack }) => {
 };
 
 const ViewC = ({ onBack }) => {
+  const isMobile = useIsMobile();
   const [contentIndex, setContentIndex] = useState(0);
 
   const viewCData = [
@@ -485,6 +617,7 @@ const ViewC = ({ onBack }) => {
         "Blog-a-thon brings together bloggers, creators and developers for an exciting mix of speaker sessions, mini-games, collaborative activities and a code competition. The event fosters learning & creativity offering a dynamic space to grow in content creation and web development.",
       img1: "/yantra-1.png",
       img2: "/yantra-2.png",
+      bgText: "YANTRA",
     },
     {
       title: "Coding Relay",
@@ -493,6 +626,7 @@ const ViewC = ({ onBack }) => {
         "Coding Relay is an exciting team-based coding challenge where participants tackle problems under time pressure. The tasks are switched at intervals, forcing teammates to pick up from where others left off, testing teamwork, quick thinking and problem-solving skills in a high-stakes environment.",
       img1: "/yantra-3.png",
       img2: "/yantra-4.png",
+      bgText: "YANTRA",
     },
   ];
 
@@ -506,31 +640,100 @@ const ViewC = ({ onBack }) => {
     <>
       <motion.div
         key="viewC"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -50 }}
+        transition={{ duration: 0, ease: easeOut }}
         className="w-full h-screen flex flex-col justify-center items-center absolute"
       >
+        <AnimatePresence>
+          {contentIndex === 0 && (
+            <>
+              <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, ease: easeOut, delay: 0.1 }}
+                className="z-50 rounded-3xl w-[10rem] h-[11rem] absolute top-20 left-4 sm:hidden block"
+              >
+                <img
+                  src="/yantra-1.png"
+                  alt=""
+                  className="object-contain rounded-3xl"
+                />
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, ease: easeOut, delay: 0.3 }}
+                className="z-50 rounded-3xl w-[10rem] h-[11rem] absolute top-[27rem] right-4 sm:hidden block"
+              >
+                <img
+                  src="/yantra-2.png"
+                  alt=""
+                  className="object-contain rounded-3xl"
+                />
+              </motion.div>
+            </>
+          )}
+          {contentIndex === 1 && (
+            <>
+              <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, ease: easeOut, delay: 0.1 }}
+                className="z-50 rounded-3xl w-[10rem] h-[11rem] absolute top-20 left-4 sm:hidden block"
+              >
+                <img
+                  src="/yantra-3.png"
+                  alt=""
+                  className="object-contain rounded-3xl"
+                />
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, ease: easeOut, delay: 0.3 }}
+                className="z-50 rounded-3xl w-[10rem] h-[11rem] absolute top-[27rem] right-4 sm:hidden block"
+              >
+                <img
+                  src="/yantra-4.png"
+                  alt=""
+                  className="object-contain rounded-3xl"
+                />
+              </motion.div>
+            </>
+          )}
+        </AnimatePresence>
+
         <img
           src="/vector-3.svg"
           alt=""
-          className="absolute -top-1/3 left-10 -rotate-90"
+          className="absolute -top-1/3 left-10 -rotate-90 sm:block hidden"
         />
         <img
           src="/vector-3.svg"
           alt=""
-          className="absolute -top-1/3 -right-20 -rotate-90"
+          className="absolute -top-1/3 -right-20 -rotate-90 sm:block hidden"
         />
-        <img src="/vector18.svg" alt="" className="absolute left-28 top-32" />
+        <img
+          src="/vector18.svg"
+          alt=""
+          className="absolute left-28 top-32 sm:block hidden"
+        />
         <img
           src="/vector.svg"
           alt=""
-          className="size-20 right-24 absolute top-32"
+          className="size-20 right-10 sm:right-24 absolute top-32"
         />
         <img
           src="/vector.svg"
           alt=""
-          className="size-20 left-40 absolute top-28"
+          className="size-44 left-5 absolute top-[26rem] sm:hidden block"
+        />
+        <img
+          src="/vector.svg"
+          alt=""
+          className="size-10 sm:size-20 right-24 sm:left-40 absolute top-28"
         />
 
         <AnimatePresence mode="wait">
@@ -540,35 +743,39 @@ const ViewC = ({ onBack }) => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -30 }}
             transition={{ duration: 0.5, ease: easeOut }}
-            className="flex items-center justify-between w-full px-10"
+            className="flex items-center justify-between w-full sm:px-10 mt-10"
           >
-            <div className="z-50 rounded-3xl w-[26.5rem] h-[27rem] relative">
+            <div className="sm:block hidden z-50 rounded-3xl w-[26.5rem] h-[27rem] relative -top-14">
               <img
                 src={currentContent.img1}
                 alt=""
                 className="object-contain rounded-3xl"
               />
             </div>
-            <div className="z-50 rounded-3xl w-[30rem] h-[27rem] backdrop-blur-xl p-5 bg-[#001b0c9a] flex items-center justify-center relative">
-              <img src="/vector19.svg" alt="" className="absolute size-[95%]" />
+            <div className="z-50 rounded-3xl mx-auto w-[15rem] sm:w-[30rem] h-[16rem] sm:h-[27rem] backdrop-blur-xl p-5 bg-[#001b0c9a] flex items-center justify-center relative top-6 sm:-top-14">
+              <img
+                src={isMobile ? "/vector38.svg" : "/vector19.svg"}
+                alt=""
+                className="absolute size-[95%]"
+              />
               <div className="text-white z-50 flex items-center justify-start flex-col gap-1">
-                <span className="audiowide uppercase text-3xl text-center">
+                <span className="text-white audiowide uppercase text-sm sm:text-3xl text-center">
                   {currentContent.title}
                 </span>
-                <span className="poppins uppercase text-sm leading-tight text-center tracking-[0.2rem] mt-2 whitespace-pre-line">
+                <span className="text-white poppins uppercase sm:text-xl text-[0.65rem] leading-tight text-center tracking-wide sm:tracking-[0.2rem] sm:mt-2 whitespace-pre-line">
                   {currentContent.subTitle}
                 </span>
                 <img
                   src="/vector20.svg"
                   alt=""
-                  className="size-[70%] mb-3 mt-2"
+                  className="size-[70%] sm:mb-3 my-1 sm:mt-2"
                 />
-                <p className="manrope leading-[2.5rem] text-center px-6 text-md">
+                <p className="manrope leading-normal sm:leading-[2.5rem] text-center text-white sm:px-6 text-xs sm:text-base">
                   {currentContent.description}
                 </p>
               </div>
             </div>
-            <div className="z-50 rounded-3xl w-[26.5rem] h-[27rem] relative">
+            <div className="sm:block hidden z-50 rounded-3xl w-[26.5rem] h-[27rem] relative -top-14">
               <img
                 src={currentContent.img2}
                 alt=""
@@ -579,28 +786,37 @@ const ViewC = ({ onBack }) => {
         </AnimatePresence>
 
         <motion.button
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease: easeOut, delay: 0.6 }}
           onClick={onBack}
-          className="audiowide mt-12 px-12 py-2 bg-gradient-to-r from-[#2b684e] to-[#001b0c] text-white rounded-2xl z-50 text-3xl bg-[length:200%_auto] hover:bg-right transition-all duration-500"
+          className="sm:top-0 top-20 sm:left-0 right-28 relative audiowide mt-3 px-6 sm:px-12 py-2 bg-gradient-to-r from-[#2b684e] to-[#001b0c] text-white rounded-2xl z-50 text-xl sm:text-3xl bg-[length:200%_auto] hover:bg-right transition-all duration-500"
         >
           Back
         </motion.button>
       </motion.div>
-      <motion.span
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7, ease: easeOut, delay: 1 }}
-        className="text-[20rem] italic bg-gradient-to-b from-[#4a4a4a] via-[#4a4a4a6d] to-transparent text-transparent bg-clip-text fixed -bottom-24 cursor-default"
-      >
-        YANTRA
-      </motion.span>
+
+      <AnimatePresence mode="wait">
+        <motion.span
+          key={currentContent.bgText}
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -50 }}
+          transition={{ duration: 0.7, ease: easeOut, delay: 0.2 }}
+          className="text-[4.5rem] sm:text-[20rem] italic bg-gradient-to-b from-[#4a4a4a] via-[#4a4a4a6d] to-transparent text-transparent bg-clip-text fixed -bottom-2 sm:-bottom-24 cursor-default"
+        >
+          {currentContent.bgText}
+        </motion.span>
+      </AnimatePresence>
+
       <motion.img
         onClick={handleNavigation}
         src="/vector17.svg"
         alt="Navigate Events"
-        className="absolute bottom-10 size-32 right-5 cursor-pointer z-50"
+        className="absolute bottom-2 sm:bottom-10 size-16 sm:size-32 right-5 cursor-pointer z-50"
         animate={{
           rotate: contentIndex === 0 ? 0 : 180,
-          x: contentIndex === 0 ? 0 : "calc(-100vw + 11rem)",
+          x: contentIndex === 0 ? 0 : isMobile ? 0 : "calc(-100vw + 11rem)",
         }}
         transition={{ duration: 0.7, ease: easeOut }}
       />
@@ -608,248 +824,309 @@ const ViewC = ({ onBack }) => {
   );
 };
 
-const ViewD = ({ onBack, onNext }) => (
-  <motion.div
-    key="viewD"
-    initial={{ opacity: 0 }}
-    animate={{ opacity: 1 }}
-    exit={{ opacity: 0 }}
-    className="w-full h-screen flex flex-col justify-center items-center absolute z-50"
-  >
-    <div className="absolute bottom-56 left-[8.5rem] rounded-3xl w-[25rem] h-[27rem] backdrop-blur-xl p-5 bg-[#00000040] flex items-center justify-center">
-      <img src="/vector29.svg" alt="" className="absolute size-[97%]" />
-      <div className="bg-transparent w-[95%] h-[95%]">
-        <img src="/bh-1.png" alt="" className="object-contain w-full h-full" />
+const ViewD = ({ onBack, onNext }) => {
+  const isMobile = useIsMobile();
+  return (
+    <motion.div
+      key="viewD"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="w-full h-screen flex flex-col justify-center items-center absolute z-50"
+    >
+      <div className="absolute bottom-20 sm:bottom-56 left-6 sm:left-[8.5rem] rounded-3xl w-[8rem] sm:w-[25rem] h-[27rem] sm:backdrop-blur-xl p-5 bg-transparent sm:bg-[#00000040] flex items-center justify-center">
+        <img src="/vector29.svg" alt="" className="absolute size-[97%]" />
+        <div className="bg-transparent sm:w-[95%] sm:h-[95%]">
+          <img
+            src="/bh-1.png"
+            alt=""
+            className={`object-contain ${
+              isMobile ? "scale-[1.25]" : ""
+            } w-full h-full`}
+          />
+        </div>
       </div>
-    </div>
-    <motion.img
-      src="/orb.svg"
-      alt=""
-      className="z-30 absolute left-72 top-[39rem]"
-      animate={{
-        y: [0, -15, 0],
-      }}
-      transition={{
-        y: {
-          duration: 3,
-          repeat: Infinity,
-          ease: "easeInOut",
-        },
-      }}
-    />
-    <img src="/base.svg" alt="" className="absolute left-52 top-[38rem]" />
-    <div className="absolute bottom-56 right-[8.5rem] rounded-3xl w-[25rem] h-[27rem] backdrop-blur-xl p-5 bg-[#00000040] flex items-center justify-center">
-      <img src="/vector29.svg" alt="" className="absolute size-[97%]" />
-      <div className="bg-transparent w-[95%] h-[95%]">
-        <img src="/bh-2.png" alt="" className="object-contain w-full h-full" />
+      <motion.img
+        src="/orb.svg"
+        alt=""
+        className={`${
+          isMobile ? "size-14" : ""
+        } absolute right-[3.65rem] bottom-40 sm:right-[18.5rem] sm:top-[39rem]`}
+        animate={{
+          y: [0, -15, 0],
+        }}
+        transition={{
+          y: {
+            duration: 3,
+            repeat: Infinity,
+            ease: "easeInOut",
+          },
+        }}
+      />
+      <img
+        src="/base.svg"
+        alt=""
+        className={`${
+          isMobile ? "size-20" : ""
+        } absolute right-12 bottom-32 sm:right-52 sm:top-[38rem]`}
+      />
+      <div className="absolute bottom-20 sm:bottom-56 right-6 sm:right-[8.5rem] rounded-3xl w-[8rem] sm:w-[25rem] h-[27rem] sm:backdrop-blur-xl p-5 bg-transparent sm:bg-[#00000040] flex items-center justify-center">
+        <img src="/vector29.svg" alt="" className="absolute size-[97%]" />
+        <div className="bg-transparent w-[95%] h-[95%]">
+          <img
+            src="/bh-2.png"
+            alt=""
+            className={`object-contain ${
+              isMobile ? "scale-[1.25]" : ""
+            } w-full h-full`}
+          />
+        </div>
       </div>
-    </div>
-    <motion.img
-      src="/orb.svg"
-      alt=""
-      className="z-30 absolute right-[18.5rem] top-[39rem]"
-      animate={{
-        y: [0, -15, 0],
-      }}
-      transition={{
-        y: {
-          duration: 3,
-          repeat: Infinity,
-          ease: "easeInOut",
-        },
-      }}
-    />
-    <img src="/base.svg" alt="" className="absolute right-52 top-[38rem]" />
-    <div className="w-full h-fit flex flex-col items-center justify-center gap-y-6 absolute bottom-20">
-      <h1 className="text-center text-6xl mx-auto text-white audiowide uppercase">
-        Bug Hunt
-      </h1>
-      <p className="leading-[2.5rem] text-white text-center manrope w-96 text-xl">
-        Bug Hunt is an intense debugging competition that tests participants'
-        skills in Java, C++, and Python. Under time pressure, competitors have
-        to spot and fix bugs, showcasing their logic, precision, and efficiency
-        in a fun, fast-paced environment.
-      </p>
-      <GreenDots1 />
-    </div>
-    <motion.img
-      onClick={onBack}
-      src="/vector17.svg"
-      alt="Back to Grid"
-      className="absolute bottom-10 size-32 left-5 cursor-pointer"
-      style={{ rotateY: 180 }}
-      whileHover={{ scale: 1.1 }}
-    />
-    <motion.img
-      onClick={onNext}
-      src="/vector17.svg"
-      alt="Next View"
-      className="absolute bottom-10 size-32 right-5 cursor-pointer"
-      whileHover={{ scale: 1.1 }}
-    />
-  </motion.div>
-);
+      <motion.img
+        src="/orb.svg"
+        alt=""
+        className={`${
+          isMobile ? "size-14" : ""
+        } absolute left-[3.65rem] bottom-40 sm:left-[18.5rem] sm:top-[39rem]`}
+        animate={{
+          y: [0, -15, 0],
+        }}
+        transition={{
+          y: {
+            duration: 3,
+            repeat: Infinity,
+            ease: "easeInOut",
+          },
+        }}
+      />
+      <img
+        src="/base.svg"
+        alt=""
+        className={`${
+          isMobile ? "size-20" : ""
+        } absolute left-12 bottom-32 sm:left-52 sm:top-[38rem]`}
+      />
+      <div className="w-full h-fit flex flex-col items-center justify-center gap-y-6 absolute top-32 sm:bottom-20">
+        <h1 className="text-center text-3xl sm:text-6xl mx-auto text-white audiowide uppercase">
+          Bug Hunt
+        </h1>
+        <p className="leading-normal sm:leading-[2.5rem] text-white text-center manrope mx-3 sm:w-96 text-sm sm:text-xl">
+          Bug Hunt is an intense debugging competition that tests participants'
+          skills in Java, C++, and Python. Under time pressure, competitors have
+          to spot and fix bugs, showcasing their logic, precision, and
+          efficiency in a fun, fast-paced environment.
+        </p>
+        <GreenDots1 />
+      </div>
+      <motion.img
+        onClick={onBack}
+        src="/vector17.svg"
+        alt="Back to Grid"
+        className="absolute bottom-10 size-20 sm:size-32 left-5 cursor-pointer"
+        style={{ rotateY: 180 }}
+        whileHover={{ scale: 1.1 }}
+      />
+      <motion.img
+        onClick={onNext}
+        src="/vector17.svg"
+        alt="Next View"
+        className="absolute bottom-10 size-20 sm:size-32 right-5 cursor-pointer"
+        whileHover={{ scale: 1.1 }}
+      />
+    </motion.div>
+  );
+};
 
-const ViewE = ({ onBack, onNext }) => (
-  <motion.div
-    key="viewE"
-    initial={{ opacity: 0 }}
-    animate={{ opacity: 1 }}
-    exit={{ opacity: 0 }}
-    className="w-full h-screen flex flex-col justify-center items-center absolute z-50"
-  >
-    <div className="absolute bottom-56 left-[8.5rem] rounded-3xl w-[25rem] h-[27rem] backdrop-blur-xl p-5 bg-[#00000040] flex items-center justify-center">
-      <img src="/vector29.svg" alt="" className="absolute size-[97%]" />
-      <div className="bg-transparent w-[95%] h-[95%]">
-        <img src="/ss-1.png" alt="" className="object-contain w-full h-full" />
+const ViewE = ({ onBack, onNext }) => {
+  const isMobile = useIsMobile();
+  return (
+    <motion.div
+      key="viewE"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="w-full h-screen flex flex-col justify-center items-center absolute z-50"
+    >
+      <div className="absolute bottom-20 sm:bottom-56 left-6 sm:left-[8.5rem] rounded-3xl w-[8rem] sm:w-[25rem] h-[27rem] sm:backdrop-blur-xl p-5 bg-transparent sm:bg-[#00000040] flex items-center justify-center">
+        <img src="/vector29.svg" alt="" className="absolute size-[97%]" />
+        <div className="bg-transparent sm:w-[95%] sm:h-[95%]">
+          <img
+            src="/ss-1.png"
+            alt=""
+            className={`object-contain ${
+              isMobile ? "scale-[1.25]" : ""
+            } w-full h-full`}
+          />
+        </div>
       </div>
-    </div>
-    <motion.img
-      src="/orb.svg"
-      alt=""
-      className="z-30 absolute left-72 top-[39rem]"
-      animate={{
-        y: [0, -15, 0],
-      }}
-      transition={{
-        y: {
-          duration: 3,
-          repeat: Infinity,
-          ease: "easeInOut",
-        },
-      }}
-    />
-    <img src="/base.svg" alt="" className="absolute left-52 top-[38rem]" />
-    <div className="absolute bottom-56 right-[8.5rem] rounded-3xl w-[25rem] h-[27rem] backdrop-blur-xl p-5 bg-[#00000040] flex items-center justify-center">
-      <img src="/vector29.svg" alt="" className="absolute size-[97%]" />
-      <div className="bg-transparent w-[95%] h-[95%]">
-        <img src="/ss-2.png" alt="" className="object-contain w-full h-full" />
+      <motion.img
+        src="/orb.svg"
+        alt=""
+        className={`${
+          isMobile ? "size-14" : ""
+        } absolute right-[3.65rem] bottom-40 sm:right-[18.5rem] sm:top-[39rem]`}
+        animate={{ y: [0, -15, 0] }}
+        transition={{ y: { duration: 3, repeat: Infinity, ease: "easeInOut" } }}
+      />
+      <img
+        src="/base.svg"
+        alt=""
+        className={`${
+          isMobile ? "size-20" : ""
+        } absolute right-12 bottom-32 sm:right-52 sm:top-[38rem]`}
+      />
+      <div className="absolute bottom-20 sm:bottom-56 right-6 sm:right-[8.5rem] rounded-3xl w-[8rem] sm:w-[25rem] h-[27rem] sm:backdrop-blur-xl p-5 bg-transparent sm:bg-[#00000040] flex items-center justify-center">
+        <img src="/vector29.svg" alt="" className="absolute size-[97%]" />
+        <div className="bg-transparent w-[95%] h-[95%]">
+          <img
+            src="/ss-2.png"
+            alt=""
+            className={`object-contain ${
+              isMobile ? "scale-[1.25]" : ""
+            } w-full h-full`}
+          />
+        </div>
       </div>
-    </div>
-    <motion.img
-      src="/orb.svg"
-      alt=""
-      className="z-30 absolute right-[18.5rem] top-[39rem]"
-      animate={{
-        y: [0, -15, 0],
-      }}
-      transition={{
-        y: {
-          duration: 3,
-          repeat: Infinity,
-          ease: "easeInOut",
-        },
-      }}
-    />
-    <img src="/base.svg" alt="" className="absolute right-52 top-[38rem]" />
-    <div className="w-full h-fit flex flex-col items-center justify-center gap-y-6 absolute bottom-20">
-      <h1 className="text-center text-6xl mx-auto text-white audiowide uppercase">
-        Sudoku <br />
-        Sprint
-      </h1>
-      <p className="leading-[2.5rem] text-white text-center manrope w-96 text-xl">
-        Sudoku Sprint is a fast-paced, math-based event that challenges
-        participants’ logic, pattern recognition, and numerical reasoning.
-        Contestants race against time to solve increasingly complex 9x9 Sudoku
-        puzzles, blending speed and strategy in a thrilling test of brainpower.
-      </p>
-      <GreenDots1 />
-    </div>
+      <motion.img
+        src="/orb.svg"
+        alt=""
+        className={`${
+          isMobile ? "size-14" : ""
+        } absolute left-[3.65rem] bottom-40 sm:left-[18.5rem] sm:top-[39rem]`}
+        animate={{ y: [0, -15, 0] }}
+        transition={{ y: { duration: 3, repeat: Infinity, ease: "easeInOut" } }}
+      />
+      <img
+        src="/base.svg"
+        alt=""
+        className={`${
+          isMobile ? "size-20" : ""
+        } absolute left-12 bottom-32 sm:left-52 sm:top-[38rem]`}
+      />
+      <div className="w-full h-fit flex flex-col items-center justify-center gap-y-6 absolute top-32 sm:bottom-20">
+        <h1 className="sm:mt-0 -mt-8 text-center text-3xl sm:text-6xl mx-auto text-white audiowide uppercase">
+          Sudoku <br /> Sprint
+        </h1>
+        <p className="sm:mt-0 -mt-4 leading-normal sm:leading-[2.5rem] text-white text-center manrope mx-3 sm:w-96 text-sm sm:text-xl">
+          Sudoku Sprint is a fast-paced, math-based event that challenges
+          participants’ logic, pattern recognition, and numerical reasoning.
+          Contestants race against time to solve increasingly complex 9x9 Sudoku
+          puzzles, blending speed and strategy in a thrilling test of
+          brainpower.
+        </p>
+        <GreenDots1 />
+      </div>
+      <motion.img
+        onClick={onBack}
+        src="/vector17.svg"
+        alt="Previous View"
+        className="absolute bottom-10 size-20 sm:size-32 left-5 cursor-pointer"
+        style={{ rotateY: 180 }}
+        whileHover={{ scale: 1.1 }}
+      />
+      <motion.img
+        onClick={onNext}
+        src="/vector17.svg"
+        alt="Next View"
+        className="absolute bottom-10 size-20 sm:size-32 right-5 cursor-pointer"
+        whileHover={{ scale: 1.1 }}
+      />
+    </motion.div>
+  );
+};
 
-    <motion.img
-      onClick={onBack}
-      src="/vector17.svg"
-      alt="Previous View"
-      className="absolute bottom-10 size-32 left-5 cursor-pointer"
-      style={{ rotateY: 180 }}
-      whileHover={{ scale: 1.1 }}
-    />
-    <motion.img
-      onClick={onNext}
-      src="/vector17.svg"
-      alt="Next View"
-      className="absolute bottom-10 size-32 right-5 cursor-pointer"
-      whileHover={{ scale: 1.1 }}
-    />
-  </motion.div>
-);
-
-const ViewF = ({ onBack }) => (
-  <motion.div
-    key="viewF"
-    initial={{ opacity: 0 }}
-    animate={{ opacity: 1 }}
-    exit={{ opacity: 0 }}
-    className="w-full h-screen flex flex-col justify-center items-center absolute z-50"
-  >
-    <div className="absolute bottom-56 left-[8.5rem] rounded-3xl w-[25rem] h-[27rem] backdrop-blur-xl p-5 bg-[#00000040] flex items-center justify-center">
-      <img src="/vector29.svg" alt="" className="absolute size-[97%]" />
-      <div className="bg-transparent w-[95%] h-[95%]">
-        <img src="/rml-1.png" alt="" className="object-contain w-full h-full" />
+const ViewF = ({ onBack }) => {
+  const isMobile = useIsMobile();
+  return (
+    <motion.div
+      key="viewF"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="w-full h-screen flex flex-col justify-center items-center absolute z-50"
+    >
+      <div className="absolute bottom-20 sm:bottom-56 left-6 sm:left-[8.5rem] rounded-3xl w-[8rem] sm:w-[25rem] h-[27rem] sm:backdrop-blur-xl p-5 bg-transparent sm:bg-[#00000040] flex items-center justify-center">
+        <img src="/vector29.svg" alt="" className="absolute size-[97%]" />
+        <div className="bg-transparent sm:w-[95%] sm:h-[95%]">
+          <img
+            src="/rml-1.png"
+            alt=""
+            className={`object-contain ${
+              isMobile ? "scale-[1.25]" : ""
+            } w-full h-full`}
+          />
+        </div>
       </div>
-    </div>
-    <motion.img
-      src="/orb.svg"
-      alt=""
-      className="z-30 absolute left-72 top-[39rem]"
-      animate={{
-        y: [0, -15, 0],
-      }}
-      transition={{
-        y: {
-          duration: 3,
-          repeat: Infinity,
-          ease: "easeInOut",
-        },
-      }}
-    />
-    <img src="/base.svg" alt="" className="absolute left-52 top-[38rem]" />
-    <div className="absolute bottom-56 right-[8.5rem] rounded-3xl w-[25rem] h-[27rem] backdrop-blur-xl p-5 bg-[#00000040] flex items-center justify-center">
-      <img src="/vector29.svg" alt="" className="absolute size-[97%]" />
-      <div className="bg-transparent w-[95%] h-[95%]">
-        <img src="/rml-2.png" alt="" className="object-contain w-full h-full" />
+      <motion.img
+        src="/orb.svg"
+        alt=""
+        className={`${
+          isMobile ? "size-14" : ""
+        } absolute right-[3.65rem] bottom-40 sm:right-[18.5rem] sm:top-[39rem]`}
+        animate={{ y: [0, -15, 0] }}
+        transition={{ y: { duration: 3, repeat: Infinity, ease: "easeInOut" } }}
+      />
+      <img
+        src="/base.svg"
+        alt=""
+        className={`${
+          isMobile ? "size-20" : ""
+        } absolute right-12 bottom-32 sm:right-52 sm:top-[38rem]`}
+      />
+      <div className="absolute bottom-20 sm:bottom-56 right-6 sm:right-[8.5rem] rounded-3xl w-[8rem] sm:w-[25rem] h-[27rem] sm:backdrop-blur-xl p-5 bg-transparent sm:bg-[#00000040] flex items-center justify-center">
+        <img src="/vector29.svg" alt="" className="absolute size-[97%]" />
+        <div className="bg-transparent w-[95%] h-[95%]">
+          <img
+            src="/rml-2.png"
+            alt=""
+            className={`object-contain ${
+              isMobile ? "scale-[1.25]" : ""
+            } w-full h-full`}
+          />
+        </div>
       </div>
-    </div>
-    <motion.img
-      src="/orb.svg"
-      alt=""
-      className="z-30 absolute right-[18.5rem] top-[39rem]"
-      animate={{
-        y: [0, -15, 0],
-      }}
-      transition={{
-        y: {
-          duration: 3,
-          repeat: Infinity,
-          ease: "easeInOut",
-        },
-      }}
-    />
-    <img src="/base.svg" alt="" className="absolute right-52 top-[38rem]" />
-    <div className="w-full h-fit flex flex-col items-center justify-center gap-y-6 absolute bottom-20">
-      <h1 className="text-center text-6xl mx-auto text-white audiowide uppercase">
-        Road to ML
-      </h1>
-      <p className="leading-[2.5rem] text-white text-center manrope w-96 text-xl">
-        Road To Machine Learning explores the impact of data pre-processing on
-        AI/ML performance. Through case studies, it highlights how clean,
-        unbiased data leads to more accurate and fair models, offering key
-        insights for tech enthusiasts and data professionals alike.
-      </p>
-      <GreenDots1 />
-    </div>
-    <motion.img
-      onClick={onBack}
-      src="/vector17.svg"
-      alt="Previous View"
-      className="absolute bottom-10 size-32 left-5 cursor-pointer"
-      style={{ rotateY: 180 }}
-      whileHover={{ scale: 1.1 }}
-    />
-  </motion.div>
-);
+      <motion.img
+        src="/orb.svg"
+        alt=""
+        className={`${
+          isMobile ? "size-14" : ""
+        } absolute left-[3.65rem] bottom-40 sm:left-[18.5rem] sm:top-[39rem]`}
+        animate={{ y: [0, -15, 0] }}
+        transition={{ y: { duration: 3, repeat: Infinity, ease: "easeInOut" } }}
+      />
+      <img
+        src="/base.svg"
+        alt=""
+        className={`${
+          isMobile ? "size-20" : ""
+        } absolute left-12 bottom-32 sm:left-52 sm:top-[38rem]`}
+      />
+      <div className="w-full h-fit flex flex-col items-center justify-center gap-y-6 absolute top-32 sm:bottom-20">
+        <h1 className="text-center text-3xl sm:text-6xl mx-auto text-white audiowide uppercase">
+          Road to ML
+        </h1>
+        <p className="leading-normal sm:leading-[2.5rem] text-white text-center manrope mx-3 sm:w-96 text-sm sm:text-xl">
+          Road To Machine Learning explores the impact of data pre-processing on
+          AI/ML performance. Through case studies, it highlights how clean,
+          unbiased data leads to more accurate and fair models, offering key
+          insights for tech enthusiasts and data professionals alike.
+        </p>
+        <GreenDots1 />
+      </div>
+      <motion.img
+        onClick={onBack}
+        src="/vector17.svg"
+        alt="Previous View"
+        className="absolute bottom-10 size-20 sm:size-32 left-5 cursor-pointer"
+        style={{ rotateY: 180 }}
+        whileHover={{ scale: 1.1 }}
+      />
+    </motion.div>
+  );
+};
 
 const EventsPageContent = () => {
+  const isMobile = useIsMobile();
   const [view, setView] = useState("intro");
   const handleShowGrid = () => {
     setView("grid");
@@ -862,56 +1139,7 @@ const EventsPageContent = () => {
   const handleShowViewF = () => setView("viewF");
 
   return (
-    <div className="overflow-hidden relative z-10 sm:min-h-screen max-h-screen min-w-screen bg-black poppins flex flex-col justify-center items-center">
-      {/* <AnimatePresence>
-        {view === "grid" ? (
-          <motion.div
-            key="grid-background"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.5 }}
-            className="w-full h-full absolute"
-          >
-            <img
-              src="/group5.png"
-              alt="group5"
-              className="w-full h-full absolute z-0 opacity-30"
-            />
-            <Stars />
-            <GreenDots />
-            <SvgStarsBackground />
-            <img
-              src="/vector-5.svg"
-              alt=""
-              className="w-screen h-screen absolute z-0 overflow-hidden"
-            />
-          </motion.div>
-        ) : (
-          <motion.div
-            key="default-background"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.5 }}
-            className="w-full h-full absolute"
-          >
-            <img
-              src="/grid.png"
-              alt=""
-              className="w-full max-h-screen overflow-hidden absolute"
-            />
-            <Stars />
-            <GreenDots />
-            {view === "viewA" || view === "viewB" || view === "viewC" ? (
-              <></>
-            ) : (
-              <SvgStarsBackground />
-            )}
-          </motion.div>
-        )}
-      </AnimatePresence> */}
-
+    <div className="overflow-hidden relative z-10 min-h-screen min-w-screen bg-black poppins flex flex-col justify-center items-center">
       <AnimatePresence>
         {view === "intro" && (
           <motion.div
@@ -923,7 +1151,7 @@ const EventsPageContent = () => {
             className="w-full h-full absolute"
           >
             <img
-              src="/grid.png"
+              src={isMobile ? "/grid-mobile.png" : "/grid.png"}
               alt=""
               className="w-full max-h-screen overflow-hidden absolute"
             />
@@ -940,7 +1168,7 @@ const EventsPageContent = () => {
             className="w-full h-full absolute"
           >
             <img
-              src="/group5.png"
+              src={isMobile ? "/group7.png" : "/group5.png"}
               alt="group5"
               className="w-full h-full absolute z-0 opacity-30"
             />
@@ -962,7 +1190,7 @@ const EventsPageContent = () => {
             className="w-full h-full absolute"
           >
             <img
-              src="/grid.png"
+              src={isMobile ? "/grid-mobile.png" : "/grid.png"}
               alt=""
               className="w-full max-h-screen overflow-hidden absolute"
             />
@@ -980,14 +1208,16 @@ const EventsPageContent = () => {
             className="w-full h-full absolute"
           >
             <img
-              src="/grid.png"
+              src={isMobile ? "/grid-mobile.png" : "/grid.png"}
               alt=""
               className="w-full max-h-screen overflow-hidden absolute z-40"
             />
             <img
               src="/viewD.png"
               alt=""
-              className="w-full max-h-screen overflow-hidden absolute opacity-30"
+              className={`${
+                isMobile ? "scale-[2.4] top-14 " : ""
+              }w-full max-h-screen overflow-hidden absolute opacity-30`}
             />
           </motion.div>
         )}
@@ -1001,14 +1231,16 @@ const EventsPageContent = () => {
             className="w-full h-full absolute"
           >
             <img
-              src="/grid.png"
+              src={isMobile ? "/grid-mobile.png" : "/grid.png"}
               alt=""
               className="w-full max-h-screen overflow-hidden absolute z-40"
             />
             <img
               src="/viewE.png"
               alt=""
-              className="w-full max-h-screen overflow-hidden absolute opacity-30"
+              className={`${
+                isMobile ? "scale-[2] top-14 " : ""
+              }w-full max-h-screen overflow-hidden absolute opacity-30`}
             />
           </motion.div>
         )}
@@ -1022,14 +1254,16 @@ const EventsPageContent = () => {
             className="w-full h-full absolute"
           >
             <img
-              src="/grid.png"
+              src={isMobile ? "/grid-mobile.png" : "/grid.png"}
               alt=""
               className="w-full max-h-screen overflow-hidden absolute z-40"
             />
             <img
               src="/viewF.png"
               alt=""
-              className="w-full max-h-screen overflow-hidden absolute opacity-30"
+              className={`${
+                isMobile ? "scale-[2] top-14 " : ""
+              }w-full max-h-screen overflow-hidden absolute opacity-30`}
             />
           </motion.div>
         )}
@@ -1044,9 +1278,9 @@ const EventsPageContent = () => {
           >
             <div className="absolute left-0 w-full">
               <img
-                src="/group4.png"
+                src={"/group4.png"}
                 alt=""
-                className="opacity-30 w-1/2 h-full relative"
+                className="opacity-30 sm:w-1/2 sm:top-0 top-32 w-full h-full sm:h-full relative"
               />
             </div>
             <img
@@ -1061,7 +1295,7 @@ const EventsPageContent = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 3.5, ease: easeOut, delay: 0.2 }}
-              className="absolute size-[26rem] z-50 left-[20%] rounded-full"
+              className="absolute size-[11rem] sm:size-[26rem] z-50 right-[2%] sm:left-[20%] rounded-full"
               style={{
                 boxShadow: "0 0 500px 40px rgba(255, 255, 255, 0.3)",
               }}
@@ -1069,7 +1303,7 @@ const EventsPageContent = () => {
               <img src="/akshat-funny.png" alt="" className="object-contain" />
             </motion.div>
             <motion.div
-              className="z-20 w-1/2 relative -right-96 h-full"
+              className="z-20 w-full sm:w-1/2 relative sm:-right-96 h-full"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.3, ease: easeOut }}
@@ -1078,7 +1312,7 @@ const EventsPageContent = () => {
                 initial={{ y: 30, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.5, ease: easeOut, delay: 0.2 }}
-                className="relative -top-10 ml-12 uppercase text-[34px] audiowide text-[#9CEBDB]"
+                className="relative -top-24 sm:-top-10 ml-8 sm:ml-12 uppercase text-[20px] sm:text-[34px] audiowide text-[#9CEBDB]"
               >
                 The pulse of
               </motion.h1>
@@ -1086,28 +1320,28 @@ const EventsPageContent = () => {
                 initial={{ y: 30, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.5, ease: easeOut, delay: 0.5 }}
-                className="relative -top-10 audiowide ml-12 z-20 text-white sm:text-[58px] text-[16px] uppercase"
+                className="relative -top-24 sm:-top-10 ml-8 audiowide sm:ml-12 z-20 text-white sm:text-[58px] text-[24px] uppercase"
               >
                 What's happening <br />
                 at SIAM
                 <img
                   src="/vector11.svg"
                   alt=""
-                  className="absolute top-[4.5rem] -left-20 -z-10 size-[65%]"
+                  className="absolute top-[2rem] sm:top-[4.5rem] -left-12 sm:-left-20 -z-10 size-[65%]"
                 />
               </motion.h1>
               <motion.h2
                 initial={{ y: 30, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.5, ease: easeOut, delay: 0.7 }}
-                className="z-50 leading-none afacad relative text-center text-white sm:text-[32px] text-[16px]"
+                className="z-50 leading-none afacad relative sm:top-0 -top-20 text-center text-white sm:text-[32px] text-[20px]"
               >
                 Quizzes | Guest Talks | Hackathons | More...
               </motion.h2>
               <motion.img
                 src="/vector12.svg"
                 alt=""
-                className="relative top-4 left-12"
+                className="relative -top-16 sm:top-4 sm:left-12"
                 initial={{ y: 30, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.5, ease: easeOut, delay: 0.9 }}
@@ -1116,29 +1350,29 @@ const EventsPageContent = () => {
                 initial={{ y: 30, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.5, ease: easeOut, delay: 1.1 }}
-                className="relative right-[42rem] top-[4.5rem] w-[1800px] h-[220px] flex items-center justify-center"
+                className="relative right-[46rem] sm:right-[42rem] -top-12 sm:top-[4.5rem] w-[1800px] h-[220px] flex items-center justify-center"
               >
                 <div
-                  className="bg-[#28649721] z-0 flex flex-col items-center justify-center rounded-3xl backdrop-blur-xl w-[58rem] h-[18.5rem]"
+                  className="bg-[#28649721] z-0 flex flex-col items-center justify-center rounded-3xl backdrop-blur-xl w-[20rem] h-[7rem] sm:w-[58rem] sm:h-[18.5rem]"
                   style={{ transform: "translateZ(0)" }}
                 >
                   <img
                     src="/vector15.svg"
                     alt=""
-                    className="relative top-[3.65rem] size-[97%]"
+                    className="relative top-[2.6rem] sm:top-[3.65rem] size-[97%]"
                   />
                   <img
                     src="/vector13.svg"
                     alt=""
-                    className="size-[40%] relative bottom-0 -right-[27rem]"
+                    className="size-[75%] sm:size-[40%] relative -bottom-52 sm:bottom-0 -right-36 sm:-right-[27rem]"
                   />
                   <img
                     src="/vector14.svg"
                     alt="Show Events"
                     onClick={handleShowGrid}
-                    className="absolute size-[10%] top-[17.15rem] -right-[1.6rem] z-50 cursor-pointer hover:scale-110 transition-transform duration-300"
+                    className="absolute size-[20%] sm:size-[10%] top-[19rem] sm:top-[17.15rem] -right-[1.6rem] z-50 cursor-pointer hover:scale-110 transition-transform duration-300"
                   />
-                  <span className="leading-relaxed afacad text-[2.7rem] text-white !italic absolute top-10 right-20 text-left">
+                  <span className="leading-normal sm:leading-relaxed afacad text-sm sm:text-[2.7rem] text-white !italic absolute right-32 sm:top-10 sm:right-20 text-left">
                     Because every great idea <br />
                     deserves a stage and every <br />
                     curious mind, a space to explore.
@@ -1149,9 +1383,11 @@ const EventsPageContent = () => {
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.5, ease: easeOut, delay: 1.4 }}
-                className="text-white text-md manrope ml-10 -bottom-36 absolute text-xl"
+                className="text-white text-md manrope ml-8 sm:ml-10 -bottom-36 absolute"
               >
-                Ready for more? Hit the arrow button and dive into our events!
+                Ready for more? Hit the arrow{" "}
+                <br className="sm:hidden visible" />
+                button and dive into our events!
               </motion.span>
             </motion.div>
           </motion.div>
@@ -1162,13 +1398,13 @@ const EventsPageContent = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.7, ease: easeOut }}
-            className="w-full h-screen flex flex-col justify-start items-center relative top-32"
+            className="w-full h-full sm:h-screen flex flex-col justify-start items-center relative top-5 sm:top-32"
           >
             <motion.h1
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, ease: easeOut, delay: 0.2 }}
-              className="manrope mt-8 z-20 text-center text-white sm:text-[66px] text-[16px] mx-10 sm:mx-32"
+              className="manrope -mt-14 sm:mt-8 z-20 text-center text-white sm:text-[66px] text-[32px] mx-3 sm:mx-32"
             >
               What We Do?
             </motion.h1>
@@ -1178,13 +1414,13 @@ const EventsPageContent = () => {
               transition={{ duration: 0.7, ease: easeOut, delay: 0.5 }}
               src="/line.svg"
               alt=""
-              className="z-20"
+              className="z-20 sm:block hidden"
             />
             <motion.h2
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, ease: easeOut, delay: 0.8 }}
-              className="leading-relaxed manrope z-50 relative text-center text-white/90 sm:text-[22px] text-[16px] mx-10 sm:mx-96 mt-3"
+              className="leading-relaxed manrope z-50 relative text-center text-white/90 sm:text-[22px] text-[14px] mx-3 sm:mx-96 mt-1 sm:mt-3"
             >
               Curious about what we've been up to? Tap the icons to dive into
               each fest! <br /> Or hit the button to keep exploring!
@@ -1193,7 +1429,7 @@ const EventsPageContent = () => {
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, ease: easeOut, delay: 1.1 }}
-              className="flex items-center justify-between mx-auto w-2/3 mt-10"
+              className="flex items-center justify-between mx-3 gap-x-5 sm:mx-auto sm:w-2/3 mt-10"
               style={{ transform: "translateZ(0)" }}
             >
               <motion.button
@@ -1204,7 +1440,7 @@ const EventsPageContent = () => {
                 <img
                   src="/group-g.svg"
                   alt="View A"
-                  className="backdrop-blur-md size-44"
+                  className="backdrop-blur-md scale-130"
                 />
               </motion.button>
               <motion.button
@@ -1215,7 +1451,7 @@ const EventsPageContent = () => {
                 <img
                   src="/group-r.svg"
                   alt="View B"
-                  className="backdrop-blur-md size-44"
+                  className="backdrop-blur-md scale-130"
                 />
               </motion.button>
               <motion.button
@@ -1226,7 +1462,7 @@ const EventsPageContent = () => {
                 <img
                   src="/group-y.svg"
                   alt="View C"
-                  className="backdrop-blur-md size-44"
+                  className="backdrop-blur-md scale-130"
                 />
               </motion.button>
             </motion.div>
@@ -1234,14 +1470,14 @@ const EventsPageContent = () => {
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, ease: easeOut, delay: 1.4 }}
-              className="rounded-3xl mt-5 w-[60rem] h-[13rem] backdrop-blur-xl p-5 bg-black/[0.34] flex items-center justify-center"
+              className="rounded-3xl mt-5 w-[20rem] sm:w-[60rem] h-[11rem] sm:h-[13rem] backdrop-blur-xl px-10 sm:p-5 bg-black/[0.34] flex items-center justify-center"
             >
               <img
-                src="/vector16.svg"
+                src={isMobile ? "/vector37.svg" : "/vector16.svg"}
                 alt=""
-                className="absolute right-3 mx-auto size-[97%]"
+                className="absolute right-0 sm:right-3 sm:mx-auto sm:size-[97%] size-[98%]"
               />
-              <p className="manrope text-white leading-loose text-md text-center">
+              <p className="manrope text-white leading-tight text-[0.67rem] text-md sm:text-lg text-center">
                 SIAM thrives on blending innovation and creativity by organizing
                 diverse events during cultural and tech fests. From interactive
                 workshops and coding challenges to tech exhibitions and fun
@@ -1258,7 +1494,7 @@ const EventsPageContent = () => {
               onClick={handleShowViewD}
               src="/vector17.svg"
               alt="Explore Events"
-              className="absolute top-52 size-32 right-5 cursor-pointer"
+              className="absolute top-[25.5rem] sm:top-52 size-20 sm:size-32 right-[9rem] sm:right-5 cursor-pointer"
             />
           </motion.div>
         )}

@@ -41,7 +41,7 @@ const AnimatedLines = () => {
         style={{
           width: isMobile ? "6px" : "8px", // Increased line thickness
           right: isMobile ? "9.5vw" : "12.4vw", // Aligned to a grid like position from right
-          top: "0", // Start from the very top
+          top: isMobile ? "100" : "0", // Start from the very top
           boxShadow: "0 0 10px 1px #0CE46C", // Green glow for the line itself
         }}
         initial={{ height: 0, opacity: 0 }} // Start off-screen above, invisible
@@ -67,7 +67,7 @@ const AnimatedLines = () => {
         className="absolute bg-green-500/80 origin-right"
         style={{
           height: isMobile ? "6px" : "10px", // Increased line thickness
-          top: isMobile ? "30vh" : "31.75vh", // Aligned to a grid like position from top
+          top: isMobile ? "31.5vh" : "31.75vh", // Aligned to a grid like position from top
           right: "0", // Start from the very right
           y: "-50%", // Center the line if needed, adjust 'top' if not
           boxShadow: "0 0 10px 1px #0CE46C", // Green glow for the line itself

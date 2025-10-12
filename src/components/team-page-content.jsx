@@ -1,10 +1,5 @@
 import { useState, useEffect } from "react";
-import {
-  motion,
-  AnimatePresence,
-  easeOut,
-  easeInOut,
-} from "framer-motion";
+import { motion, AnimatePresence, easeOut, easeInOut } from "framer-motion";
 import { useWindowSize } from "react-use";
 import useIsMobile from "../hooks/useIsMobile";
 
@@ -397,7 +392,7 @@ const TeamPageContent = () => {
               <>
                 <motion.img
                   key="grid-bg"
-                  src="/grid.png"
+                  src={isMobile ? "/grid-mobile.png" : "/grid.png"}
                   alt="grid"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
@@ -484,11 +479,11 @@ const TeamPageContent = () => {
                         ease: easeOut,
                         delay: 0.8,
                       }}
-                      className="z-0 flex flex-col items-center justify-center rounded-3xl backdrop-blur-xl sm:w-[35rem] sm:h-[16.3rem] w-[24rem] h-[10rem]"
+                      className="z-0 flex flex-col items-center justify-center rounded-3xl backdrop-blur-xl sm:w-[35rem] sm:h-[16.3rem] w-[21rem] h-[9rem]"
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        width={isMobile1 ? "380" : "600"}
+                        width={isMobile1 ? "320" : "600"}
                         height="220"
                         viewBox="0 0 630 261"
                         fill="none"
@@ -535,11 +530,11 @@ const TeamPageContent = () => {
                       </svg>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        width={isMobile1 ? "90" : "110"}
+                        width={isMobile1 ? "70" : "110"}
                         height="120"
                         viewBox="0 0 148 161"
                         fill="none"
-                        className="mb-3 cursor-pointer z-[999] relative"
+                        className="sm:mb-3 cursor-pointer z-[999] relative"
                         onClick={handleShowGrid}
                       >
                         <path
@@ -740,7 +735,7 @@ const TeamPageContent = () => {
                           </radialGradient>
                         </defs>
                       </svg>
-                      <span className="manrope sm:text-xl text-lg mb-4 sm:mb-4">
+                      <span className="manrope sm:text-xl text-base mb-4 sm:mb-4">
                         Click To Know More About Our Team
                       </span>
                     </motion.div>
@@ -771,7 +766,12 @@ const TeamPageContent = () => {
                       The People Behind the Scenes
                     </motion.h2>
 
-                    <div className="relative w-full h-[450px] mt-16 overflow-hidden">
+                    <motion.div
+                      initial={{ y: 50, opacity: 0 }}
+                      animate={{ y: 0, opacity: 1 }}
+                      transition={{ duration: 1, ease: easeOut, delay: 0.8 }}
+                      className="relative w-full h-[350px] mt-2 sm:mt-16 overflow-hidden"
+                    >
                       <AnimatePresence initial={false} custom={slideDirection}>
                         <motion.div
                           key={mobileCarouselPage}
@@ -784,7 +784,7 @@ const TeamPageContent = () => {
                             x: { type: "spring", stiffness: 300, damping: 30 },
                             opacity: { duration: 0.2 },
                           }}
-                          className="absolute inset-0 grid grid-cols-2 gap-x-4 gap-y-8 justify-items-center"
+                          className="absolute inset-0 grid grid-cols-2 gap-x-4 justify-items-center"
                         >
                           {membersToShowMobile.map((member) => (
                             <MobileMemberCard
@@ -797,8 +797,13 @@ const TeamPageContent = () => {
                           ))}
                         </motion.div>
                       </AnimatePresence>
-                    </div>
-                    <div className="flex items-center justify-between w-full px-8 mt-4">
+                    </motion.div>
+                    <motion.div
+                      initial={{ y: 50, opacity: 0 }}
+                      animate={{ y: 0, opacity: 1 }}
+                      transition={{ duration: 1, ease: easeOut, delay: 1.0 }}
+                      className="flex items-center justify-between w-full px-8 mt-4"
+                    >
                       <button
                         onClick={() => handleMobileNavigation(-1)}
                         disabled={mobileCarouselPage === 0}
@@ -821,7 +826,7 @@ const TeamPageContent = () => {
                           className="w-12 h-12"
                         />
                       </button>
-                    </div>
+                    </motion.div>
                   </motion.div>
                 ) : (
                   <motion.div
@@ -863,7 +868,11 @@ const TeamPageContent = () => {
                       transition={{ delay: 1, ease: easeOut, duration: 0.7 }}
                       className="h-2/3 w-full flex flex-col items-center justify-center -mt-10"
                     >
-                      <div className="relative w-[85%] h-full overflow-hidden">
+                      <motion.div
+                        animate={{ y: 0, opacity: 1 }}
+                        transition={{ duration: 1, ease: easeOut, delay: 0.8 }}
+                        className="relative w-[85%] h-full overflow-hidden"
+                      >
                         <AnimatePresence initial={false}>
                           {carouselPage === 0 && (
                             <motion.div
@@ -909,7 +918,7 @@ const TeamPageContent = () => {
                             </motion.div>
                           )}
                         </AnimatePresence>
-                      </div>
+                      </motion.div>
                     </motion.div>
                     <motion.div
                       className="absolute bottom-5"
