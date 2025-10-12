@@ -270,14 +270,14 @@ const TeamPageContent = () => {
       name: "Aaditya Roshan",
       role: "Chairperson",
       desc: "A visionary leader with persistent optimism, Aaditya has been the driving force behind our chapter’s growth and success. His ability to bring out the best in people, combined with his sharp wit and approachable nature, makes him an exceptional mentor and guide. A commanding presence, he leads with confidence and purpose—steering the team forward with encouragement. Whether it’s solving challenges, or ensuring that every initiative runs smoothly, he has a knack for getting things done effortlessly. Always ready to help and uplift those around him, Aaditya’s leadership is defined by both efficiency and a genuine commitment to the people he works with.",
-      img: "aaditya roshan.png",
+      img: "aaditya roshan.webp",
       linkedin: "https://www.linkedin.com/in/aaditya-roshan-02a519274/",
     },
     {
       name: "Harsh Agrawal",
       role: "Vice Chairperson",
       desc: "Harsh Agrawal is the Vice-Chairperson of SIAM, and he represents persistence, reasonableness, and logic in everything he does. Friendly and approachable, he creates a team-like atmosphere while also remaining acutely problem-solving in nature. He is a sports buff who is an avid fan of football and athletics, which instils in him the competitive nature. In addition to his passion for sports, Harsh also has an interest in developing apps, where he uses his analytical mind to develop creative solutions. His skill in merging leadership, technical know-how, and teamwork makes him a valued and esteemed person in both professional and co-curricular life.",
-      img: "harsh agarwal.png",
+      img: "harsh agarwal.webp",
       linkedin: "https://www.linkedin.com/in/harsh-agrawal-9706a12aa/",
     },
     {
@@ -298,7 +298,7 @@ const TeamPageContent = () => {
       name: "Akshat Gupta",
       role: "Technical Head",
       desc: "One of the sharpest minds and most passionate tech enthusiasts you'll ever meet, Akshat represents the very best our chapter has to offer. Whether it's coding, backend development, or staying ahead of the latest tech trends, he's always at the forefront, pushing boundaries and innovating. His keen intellect is matched by his approachable and friendly nature, making him not just a brilliant problem-solver but also a great mentor. With a deep love for technology, Akshat is the go-to person for anything tech-related, always ready to share knowledge and spark engaging discussions.",
-      img: "akshat gupta.png",
+      img: "akshat gupta.webp",
       linkedin: "https://www.linkedin.com/in/akshat-gupta-864b39235",
     },
     {
@@ -326,7 +326,7 @@ const TeamPageContent = () => {
       name: "Ashutosh Chandra",
       role: "Creative Head",
       desc: "Ashutosh Chandra, our Creative Head at SIAM VIT, is the driving force behind our Instagram magic, event reels, and public presence. With a keen eye for detail and a knack for getting things done, he makes sure every initiative is executed flawlessly and on time. His creative vision brings a unique touch to everything he works on, from brainstorming concepts to final edits. Though he prefers letting his work do the talking, his impact is undeniable. Always behind the scenes, but never unnoticed. His ability to consistently deliver outstanding results makes him an essential part of our team’s success.",
-      img: "ashutosh chandra.png",
+      img: "ashutosh chandra.webp",
       linkedin: "https://www.linkedin.com/in/ashutosh-chandra-7b76a92aa/",
     },
     {
@@ -380,7 +380,7 @@ const TeamPageContent = () => {
             {view === "intro" && (
               <motion.img
                 key="board-bg"
-                src={isMobile1 ? "/group6.png" : "/board.png"}
+                src={isMobile1 ? "/group6.webp" : "/board.webp"}
                 alt="board"
                 initial={{ opacity: 0.15 }}
                 exit={{ opacity: 0 }}
@@ -392,7 +392,7 @@ const TeamPageContent = () => {
               <>
                 <motion.img
                   key="grid-bg"
-                  src={isMobile ? "/grid-mobile.png" : "/grid.png"}
+                  src={isMobile ? "/grid-mobile.webp" : "/grid.webp"}
                   alt="grid"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}

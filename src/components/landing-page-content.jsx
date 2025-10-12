@@ -147,7 +147,7 @@ const LandingPageContent = () => {
       <GreenDots />
       <AnimatedLines />
       <img
-        src={isMobile ? "/grid-mobile.png" : "/grid.png"}
+        src={isMobile ? "/grid-mobile.webp" : "/grid.webp"}
         alt=""
         className="w-full max-h-screen overflow-hidden absolute"
       />
@@ -210,12 +210,12 @@ const LandingPageContent = () => {
           </motion.h2>
 
           <img
-            src="Glow-2.png"
+            src="Glow-2.webp"
             alt=""
             className="absolute left-0 -top-56 pointer-events-none sm:block hidden"
           />
           <img
-            src="Glow-1.png"
+            src="Glow-1.webp"
             alt=""
             className="absolute left-0 -top-44 sm:block hidden"
           />

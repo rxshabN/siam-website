@@ -268,7 +268,7 @@ const AboutPageContent = () => {
       } relative z-10 min-h-screen min-w-screen bg-black poppins flex flex-col justify-center items-center`}
     >
       <img
-        src={isMobile ? "/grid-mobile.png" : "/grid.png"}
+        src={isMobile ? "/grid-mobile.webp" : "/grid.webp"}
         alt=""
         className="w-full max-h-screen overflow-hidden absolute"
       />

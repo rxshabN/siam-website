@@ -281,7 +281,7 @@ const DomainsPageContent = ({ activeDomain, setActiveDomain }) => {
     <>
       <div className="overflow-hidden relative z-10 min-h-screen min-w-screen bg-black poppins flex flex-col justify-center items-center">
         <img
-          src={isMobile1 ? "/grid-mobile.png" : "/grid.png"}
+          src={isMobile1 ? "/grid-mobile.webp" : "/grid.webp"}
           alt=""
           className="w-full max-h-screen overflow-hidden absolute"
         />
@@ -333,17 +333,15 @@ const DomainsPageContent = ({ activeDomain, setActiveDomain }) => {
             Welcome to the SIAM Skill <br className="sm:block hidden" />
             galaxy
           </motion.h1>
-          {/* 1. Outer div for the gradient border */}
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: easeOut, delay: 0.5 }}
-            className="z-50 rounded-3xl w-[16rem] h-[4rem] sm:w-[23rem] sm:h-[17rem] p-[3px] bg-[#c7e1db0b] relative top-[24rem] left-[1.3rem] sm:top-8 sm:left-14"
+            className="z-50 rounded-3xl w-[16rem] h-[4rem] sm:w-[23rem] sm:h-[17rem] p-[3px] bg-[#c7e1db0b] relative top-[27.5rem] left-[1.3rem] sm:top-8 sm:left-14"
             style={{
               boxShadow: "0 0 10px 2px rgba(0, 27, 12, 0.15)",
             }}
           >
-            {/* 2. Inner div for the content background */}
             <div className="w-full h-full bg-gradient-to-r from-[#005f213f] to-[#009c3967] backdrop-blur-2xl rounded-[22px] flex items-center justify-center">
               <span className="text-white braah-one text-sm sm:text-3xl text-center leading-relaxed">
                 Curious about our domains? <br /> Tap an icon to dive in!
@@ -353,7 +351,7 @@ const DomainsPageContent = ({ activeDomain, setActiveDomain }) => {
           <motion.img
             src={isMobile1 ? "/vector33.svg" : "/orb.svg"}
             alt=""
-            className="z-30 absolute top-[32.5rem] left-[11rem] sm:left-[15.2rem] sm:top-[28rem]"
+            className="z-30 absolute top-[36.5rem] left-[11rem] sm:left-[15.2rem] sm:top-[28rem]"
             animate={{
               y: isMobile ? [0, -5, 0] : [0, -15, 0],
             }}
@@ -368,7 +366,7 @@ const DomainsPageContent = ({ activeDomain, setActiveDomain }) => {
           <img
             src={isMobile1 ? "/vector34.svg" : "/base.svg"}
             alt=""
-            className="absolute top-[32.5rem] left-[9.475rem] sm:left-40 sm:top-[28rem]"
+            className="absolute top-[37rem] left-[9.475rem] sm:left-40 sm:top-[28rem]"
           />
         </motion.div>
         <div className="w-full h-full relative z-50">

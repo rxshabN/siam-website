@@ -395,7 +395,7 @@ const ViewB = ({ onBack, onNext }) => {
       description:
         "Triwizard Tournament is a magical, team-based event filled with fun games, logic puzzles and creative challenges. Teams compete to earn points with tiebreakers and a thrilling finale crowning the ultimate wizards or witches. A perfect blend of teamwork, strategy and enchantment!",
       img1: "/riviera-1.png",
-      img2: "/riviera-2.png",
+      img2: "/riviera-2.webp",
       bgText: "RIVIERA",
     },
     {
@@ -403,8 +403,8 @@ const ViewB = ({ onBack, onNext }) => {
       subTitle: "only the clever \nconquer the currents",
       description:
         "Shipwreck Showdown is a thrilling pirate-themed adventure featuring five rounds of puzzles, games and challenges. It is filled with excitement and clever twists & this event tests the sharpness and teamwork of every participant as they navigate high-seas chaos.",
-      img1: "/riviera-3.png",
-      img2: "/riviera-4.png",
+      img1: "/riviera-3.webp",
+      img2: "/riviera-4.webp",
       bgText: "RIVIERA",
     },
   ];
@@ -616,8 +616,8 @@ const ViewC = ({ onBack }) => {
       subTitle: "speed meets logic in the \nultimate coding sprint",
       description:
         "Coding Relay is an exciting team-based coding challenge where participants tackle problems under time pressure. The tasks are switched at intervals, forcing teammates to pick up from where others left off, testing teamwork, quick thinking and problem-solving skills in a high-stakes environment.",
-      img1: "/yantra-3.png",
-      img2: "/yantra-4.png",
+      img1: "/yantra-3.webp",
+      img2: "/yantra-4.webp",
       bgText: "YANTRA",
     },
   ];
@@ -826,7 +826,7 @@ const ViewD = ({ onBack, onNext }) => {
         <img src="/vector29.svg" alt="" className="absolute size-[97%]" />
         <div className="bg-transparent sm:w-[95%] sm:h-[95%]">
           <img
-            src="/bh-1.png"
+            src="/bh-1.webp"
             alt=""
             className={`object-contain ${
               isMobile ? "scale-[1.25]" : ""
@@ -862,7 +862,7 @@ const ViewD = ({ onBack, onNext }) => {
         <img src="/vector29.svg" alt="" className="absolute size-[97%]" />
         <div className="bg-transparent w-[95%] h-[95%]">
           <img
-            src="/bh-2.png"
+            src="/bh-2.webp"
             alt=""
             className={`object-contain ${
               isMobile ? "scale-[1.25]" : ""
@@ -1139,7 +1139,7 @@ const EventsPageContent = () => {
             className="w-full h-full absolute"
           >
             <img
-              src={isMobile ? "/grid-mobile.png" : "/grid.png"}
+              src={isMobile ? "/grid-mobile.webp" : "/grid.webp"}
               alt=""
               className="w-full max-h-screen overflow-hidden absolute"
             />
@@ -1156,7 +1156,7 @@ const EventsPageContent = () => {
             className="w-full h-full absolute"
           >
             <img
-              src={isMobile ? "/group7.png" : "/group5.png"}
+              src={isMobile ? "/group7.webp" : "/group5.webp"}
               alt="group5"
               className="w-full h-full absolute z-0 opacity-30"
             />
@@ -1178,7 +1178,7 @@ const EventsPageContent = () => {
             className="w-full h-full absolute"
           >
             <img
-              src={isMobile ? "/grid-mobile.png" : "/grid.png"}
+              src={isMobile ? "/grid-mobile.webp" : "/grid.webp"}
               alt=""
               className="w-full max-h-screen overflow-hidden absolute"
             />
@@ -1196,12 +1196,12 @@ const EventsPageContent = () => {
             className="w-full h-full absolute"
           >
             <img
-              src={isMobile ? "/grid-mobile.png" : "/grid.png"}
+              src={isMobile ? "/grid-mobile.webp" : "/grid.webp"}
               alt=""
               className="w-full max-h-screen overflow-hidden absolute z-40"
             />
             <img
-              src="/viewD.png"
+              src="/viewD.webp"
               alt=""
               className={`${
                 isMobile ? "scale-[2.4] top-14 " : ""
@@ -1219,12 +1219,12 @@ const EventsPageContent = () => {
             className="w-full h-full absolute"
           >
             <img
-              src={isMobile ? "/grid-mobile.png" : "/grid.png"}
+              src={isMobile ? "/grid-mobile.webp" : "/grid.webp"}
               alt=""
               className="w-full max-h-screen overflow-hidden absolute z-40"
             />
             <img
-              src="/viewE.png"
+              src="/viewE.webp"
               alt=""
               className={`${
                 isMobile ? "scale-[2] top-14 " : ""
@@ -1242,12 +1242,12 @@ const EventsPageContent = () => {
             className="w-full h-full absolute"
           >
             <img
-              src={isMobile ? "/grid-mobile.png" : "/grid.png"}
+              src={isMobile ? "/grid-mobile.webp" : "/grid.webp"}
               alt=""
               className="w-full max-h-screen overflow-hidden absolute z-40"
             />
             <img
-              src="/viewF.png"
+              src="/viewF.webp"
               alt=""
               className={`${
                 isMobile ? "scale-[2] top-14 " : ""
@@ -1266,13 +1266,13 @@ const EventsPageContent = () => {
           >
             <div className="absolute left-0 w-full">
               <img
-                src={"/group4.png"}
+                src={"/group4.webp"}
                 alt=""
                 className="opacity-30 sm:w-1/2 sm:top-0 top-32 w-full h-full sm:h-full relative"
               />
             </div>
             <img
-              src="/Glow-2.png"
+              src="/Glow-2.webp"
               alt=""
               className="absolute -right-32 scale-x-[-1] -bottom-52 z-10 w-full h-full"
             />
@@ -1288,7 +1288,7 @@ const EventsPageContent = () => {
                 boxShadow: "0 0 500px 40px rgba(255, 255, 255, 0.3)",
               }}
             >
-              <img src="/akshat-funny.png" alt="" className="object-contain" />
+              <img src="/akshat-funny.webp" alt="" className="object-contain" />
             </motion.div>
             <motion.div
               className="z-20 w-full sm:w-1/2 relative sm:-right-96 h-full"
