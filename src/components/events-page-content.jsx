@@ -276,7 +276,7 @@ const ViewA = ({ onBack }) => {
           transition={{ duration: 0.5, ease: easeOut, delay: 0.1 }}
           className="z-50 rounded-3xl w-[10rem] h-[11rem] absolute top-20 left-4 sm:hidden block"
         >
-          <img src="/mpl-1.png" alt="" className="object-contain rounded-3xl" />
+          <img src="/mpl-1.webp" alt="" className="object-contain rounded-3xl" />
         </motion.div>
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -284,7 +284,7 @@ const ViewA = ({ onBack }) => {
           transition={{ duration: 0.5, ease: easeOut, delay: 0.3 }}
           className="z-50 rounded-3xl w-[10rem] h-[11rem] absolute top-[27rem] right-4 sm:hidden block"
         >
-          <img src="/mpl-2.png" alt="" className="object-contain rounded-3xl" />
+          <img src="/mpl-2.webp" alt="" className="object-contain rounded-3xl" />
         </motion.div>
         <img
           src="/vector-3.svg"
@@ -324,7 +324,7 @@ const ViewA = ({ onBack }) => {
         >
           <div className="sm:block hidden z-50 rounded-3xl w-[22.5rem] h-[22rem] relative -top-14 left-10">
             <img
-              src="/mpl-1.png"
+              src="/mpl-1.webp"
               alt=""
               className="object-contain rounded-3xl"
             />
@@ -356,7 +356,7 @@ const ViewA = ({ onBack }) => {
           </div>
           <div className="sm:block hidden z-50 rounded-3xl w-[22.5rem] h-[22rem] relative -top-14 right-10">
             <img
-              src="/mpl-2.png"
+              src="/mpl-2.webp"
               alt=""
               className="object-contain rounded-3xl"
             />
@@ -394,7 +394,7 @@ const ViewB = ({ onBack, onNext }) => {
       subTitle: "Spells, scores & strategy \n let the wizardry begin",
       description:
         "Triwizard Tournament is a magical, team-based event filled with fun games, logic puzzles and creative challenges. Teams compete to earn points with tiebreakers and a thrilling finale crowning the ultimate wizards or witches. A perfect blend of teamwork, strategy and enchantment!",
-      img1: "/riviera-1.png",
+      img1: "/riviera-1.webp",
       img2: "/riviera-2.webp",
       bgText: "RIVIERA",
     },
@@ -435,7 +435,7 @@ const ViewB = ({ onBack, onNext }) => {
                 className="z-50 rounded-3xl w-[10rem] h-[11rem] absolute top-20 left-4 sm:hidden block"
               >
                 <img
-                  src="/riviera-1.png"
+                  src="/riviera-1.webp"
                   alt=""
                   className="object-contain rounded-3xl"
                 />
@@ -447,7 +447,7 @@ const ViewB = ({ onBack, onNext }) => {
                 className="z-50 rounded-3xl w-[10rem] h-[11rem] absolute top-[27rem] right-4 sm:hidden block"
               >
                 <img
-                  src="/riviera-2.png"
+                  src="/riviera-2.webp"
                   alt=""
                   className="object-contain rounded-3xl"
                 />
@@ -463,7 +463,7 @@ const ViewB = ({ onBack, onNext }) => {
                 className="z-50 rounded-3xl w-[10rem] h-[11rem] absolute top-20 left-4 sm:hidden block"
               >
                 <img
-                  src="/riviera-3.png"
+                  src="/riviera-3.webp"
                   alt=""
                   className="object-contain rounded-3xl"
                 />
@@ -475,7 +475,7 @@ const ViewB = ({ onBack, onNext }) => {
                 className="z-50 rounded-3xl w-[10rem] h-[11rem] absolute top-[27rem] right-4 sm:hidden block"
               >
                 <img
-                  src="/riviera-4.png"
+                  src="/riviera-4.webp"
                   alt=""
                   className="object-contain rounded-3xl"
                 />
@@ -607,8 +607,8 @@ const ViewC = ({ onBack }) => {
       subTitle: "from idea to website \n your journey starts here",
       description:
         "Blog-a-thon brings together bloggers, creators and developers for an exciting mix of speaker sessions, mini-games, collaborative activities and a code competition. The event fosters learning & creativity offering a dynamic space to grow in content creation and web development.",
-      img1: "/yantra-1.png",
-      img2: "/yantra-2.png",
+      img1: "/yantra-1.webp",
+      img2: "/yantra-2.webp",
       bgText: "YANTRA",
     },
     {
@@ -648,7 +648,7 @@ const ViewC = ({ onBack }) => {
                 className="z-50 rounded-3xl w-[10rem] h-[11rem] absolute top-20 left-4 sm:hidden block"
               >
                 <img
-                  src="/yantra-1.png"
+                  src="/yantra-1.webp"
                   alt=""
                   className="object-contain rounded-3xl"
                 />
@@ -660,7 +660,7 @@ const ViewC = ({ onBack }) => {
                 className="z-50 rounded-3xl w-[10rem] h-[11rem] absolute top-[27rem] right-4 sm:hidden block"
               >
                 <img
-                  src="/yantra-2.png"
+                  src="/yantra-2.webp"
                   alt=""
                   className="object-contain rounded-3xl"
                 />
@@ -676,7 +676,7 @@ const ViewC = ({ onBack }) => {
                 className="z-50 rounded-3xl w-[10rem] h-[11rem] absolute top-20 left-4 sm:hidden block"
               >
                 <img
-                  src="/yantra-3.png"
+                  src="/yantra-3.webp"
                   alt=""
                   className="object-contain rounded-3xl"
                 />
@@ -688,7 +688,7 @@ const ViewC = ({ onBack }) => {
                 className="z-50 rounded-3xl w-[10rem] h-[11rem] absolute top-[27rem] right-4 sm:hidden block"
               >
                 <img
-                  src="/yantra-4.png"
+                  src="/yantra-4.webp"
                   alt=""
                   className="object-contain rounded-3xl"
                 />
@@ -939,7 +939,7 @@ const ViewE = ({ onBack, onNext }) => {
         <img src="/vector29.svg" alt="" className="absolute size-[97%]" />
         <div className="bg-transparent sm:w-[95%] sm:h-[95%]">
           <img
-            src="/ss-1.png"
+            src="/ss-1.webp"
             alt=""
             className={`object-contain ${
               isMobile ? "scale-[1.25]" : ""
@@ -967,7 +967,7 @@ const ViewE = ({ onBack, onNext }) => {
         <img src="/vector29.svg" alt="" className="absolute size-[97%]" />
         <div className="bg-transparent w-[95%] h-[95%]">
           <img
-            src="/ss-2.png"
+            src="/ss-2.webp"
             alt=""
             className={`object-contain ${
               isMobile ? "scale-[1.25]" : ""
@@ -1037,7 +1037,7 @@ const ViewF = ({ onBack }) => {
         <img src="/vector29.svg" alt="" className="absolute size-[97%]" />
         <div className="bg-transparent sm:w-[95%] sm:h-[95%]">
           <img
-            src="/rml-1.png"
+            src="/rml-1.webp"
             alt=""
             className={`object-contain ${
               isMobile ? "scale-[1.25]" : ""
@@ -1065,7 +1065,7 @@ const ViewF = ({ onBack }) => {
         <img src="/vector29.svg" alt="" className="absolute size-[97%]" />
         <div className="bg-transparent w-[95%] h-[95%]">
           <img
-            src="/rml-2.png"
+            src="/rml-2.webp"
             alt=""
             className={`object-contain ${
               isMobile ? "scale-[1.25]" : ""
