@@ -136,7 +136,7 @@ function AnimatedLines({
     // --- FADE-OUT LOGIC ---
 
     // 1. BEAM FADE-OUT: Fades out at the very end of the animation
-    const beamFadeStartTime = duration * (1.1 / totalDistance); // Starts fading later
+    const beamFadeStartTime = duration * (0.7 / totalDistance);
     if (elapsedTime > beamFadeStartTime) {
       const fadeDuration = duration - beamFadeStartTime;
       const beamOpacity = Math.max(
@@ -154,9 +154,9 @@ function AnimatedLines({
     });
 
     // 2. LOGO FADE-OUT: Fades out earlier than the beam
-    const logoFadeInStartTime = duration * (0.4 / totalDistance);
+    const logoFadeInStartTime = duration * (0.15 / totalDistance);
     const logoFadeInEndTime = duration * (0.45 / totalDistance);
-    const logoFadeOutStartTime = duration * (0.55 / totalDistance); // MODIFICATION: Logo now starts fading much earlier
+    const logoFadeOutStartTime = duration * (0.6 / totalDistance); // CHANGE: Starts fading much earlier
 
     if (elapsedTime > logoFadeOutStartTime) {
       const fadeDuration = duration - logoFadeOutStartTime;

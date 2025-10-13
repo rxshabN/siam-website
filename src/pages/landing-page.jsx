@@ -1,5 +1,5 @@
 import React, { useState, useCallback, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, easeOut } from "framer-motion";
 import LandingPageContent from "../components/landing-page-content";
 import SplashScreen from "../components/SplashScreen";
 import useIsMobile from "../hooks/useIsMobile"; // 1. Import the hook
@@ -61,7 +61,7 @@ const LandingPage = () => {
       <AnimatePresence>
         {isSplashing && (
           <SplashScreen
-            exit={{ opacity: 0, transition: { duration: 0.5 } }} // Smoother exit
+            exit={{ opacity: 0, transition: { duration: 0 }, ease: "linear" }} // Smoother exit
             onRevealStart={handleRevealStart}
             onAnimationComplete={handleAnimationComplete}
           />
