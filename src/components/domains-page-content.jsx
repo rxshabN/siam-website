@@ -337,7 +337,7 @@ const DomainsPageContent = ({ activeDomain, setActiveDomain }) => {
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: easeOut, delay: 0.5 }}
-            className="z-50 rounded-3xl w-[16rem] h-[4rem] sm:w-[23rem] sm:h-[17rem] p-[3px] bg-[#c7e1db0b] relative top-[25rem] left-[1.3rem] sm:top-8 sm:left-14"
+            className="z-50 rounded-3xl w-[16rem] h-[4rem] sm:w-[23rem] sm:h-[17rem] p-[3px] bg-[#c7e1db0b] relative top-[25rem] left-[0.9rem] sm:top-8 sm:left-14"
             style={{
               boxShadow: "0 0 10px 2px rgba(0, 27, 12, 0.15)",
             }}
@@ -351,7 +351,7 @@ const DomainsPageContent = ({ activeDomain, setActiveDomain }) => {
           <motion.img
             src={isMobile1 ? "/vector33.svg" : "/orb.svg"}
             alt=""
-            className="z-30 absolute top-[33rem] left-[11rem] sm:left-[15.2rem] sm:top-[28rem]"
+            className="z-30 absolute top-[33rem] left-[10.6rem] sm:left-[15.2rem] sm:top-[28rem]"
             animate={{
               y: isMobile ? [0, -5, 0] : [0, -15, 0],
             }}
@@ -366,7 +366,7 @@ const DomainsPageContent = ({ activeDomain, setActiveDomain }) => {
           <img
             src={isMobile1 ? "/vector34.svg" : "/base.svg"}
             alt=""
-            className="absolute top-[32.75rem] left-[9.475rem] sm:left-40 sm:top-[28rem]"
+            className="absolute top-[32.75rem] left-[9.05rem] sm:left-40 sm:top-[28rem]"
           />
         </motion.div>
         <div className="w-full h-full relative z-50">
