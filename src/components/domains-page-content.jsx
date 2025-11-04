@@ -208,28 +208,30 @@ const DomainDetailPopup = ({ domain, onClose, height }) => {
         Back
       </button>
       <div className="flex sm:flex-row flex-col items-center justify-center h-full w-full p-5">
-        <div className="sm:w-1/3 h-1/2 sm:block flex items-center justify-center relative">
-          <div className="absolute sm:-top-32 -top-16 left-[4.25rem] sm:left-[10.5rem] rounded-3xl w-[10rem] h-[10rem] sm:w-[20rem] sm:h-[22rem] backdrop-blur-xl p-5 bg-[#00000040] flex items-center justify-center">
-            <img src="/vector28.svg" alt="" className="absolute size-[95%]" />
-            <div className="relative bg-transparent size-[95%]">
-              <img
-                src={domain.logo}
-                alt=""
-                className="object-contain w-full h-full"
-              />
+        <div className="sm:w-1/3 h-1/2 flex items-center justify-center relative">
+          <div className="relative flex flex-col items-center -translate-y-1/4 sm:translate-y-0 sm:translate-x-1/4">
+            <div className="rounded-3xl w-[10rem] h-[10rem] sm:w-[20rem] sm:h-[22rem] backdrop-blur-xl p-5 bg-[#00000040] flex items-center justify-center mb-4 sm:mb-8">
+              <img src="/vector28.svg" alt="" className="absolute size-[95%]" />
+              <div className="relative bg-transparent size-[95%]">
+                <img
+                  src={domain.logo}
+                  alt=""
+                  className="object-contain w-full h-full"
+                />
+              </div>
             </div>
+            <img
+              src="/vector27.svg"
+              alt=""
+              className="w-[65%] sm:w-[90%] max-w-[18rem] -mt-7"
+            />
           </div>
-          <img
-            src="/vector27.svg"
-            alt=""
-            className="relative size-[80%] sm:size-[90%] -top-2 left-0 sm:left-28 sm:top-44"
-          />
         </div>
         <div className="sm:w-2/3 h-1/2 flex flex-col items-center justify-start text-center text-white -mt-36 sm:-mt-32">
           <h1 className="text-xl sm:text-6xl manrope uppercase font-extrabold mb-2 sm:mb-10">
             About {domain.title}
           </h1>
-          <p className="mt-1 text-sm sm:text-2xl afacad sm:leading-[3rem] sm:px-32 px-5">
+          <p className="max-w-xl text-sm sm:text-2xl afacad sm:leading-[2.6rem]">
             {domain.description}
           </p>
         </div>
